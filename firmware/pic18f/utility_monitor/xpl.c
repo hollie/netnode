@@ -596,7 +596,7 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
             if (strcmpram2pgm("target=*", xpl_rx_buffer_shadow) == 0) {
                 // Yes, message is wildcard and hence destined to us
                 xpl_msg_state = WAITING_CMND_TYPE;
-            } else if (strncmpram2pgm("target=hollie-utilmon.", xpl_rx_buffer_shadow, XPL_TARGET_VENDOR_DEVICEID_INSTANCE_ID_OFFSET) == 0) {
+            } else if (strncmpram2pgm((rom char *)"target=hollie-utilmon.", xpl_rx_buffer_shadow, XPL_TARGET_VENDOR_DEVICEID_INSTANCE_ID_OFFSET) == 0) {
                 if (strcmp(xpl_instance_id, xpl_rx_buffer_shadow + XPL_TARGET_VENDOR_DEVICEID_INSTANCE_ID_OFFSET) == 0) {
                     // bingo message if for us
                     xpl_msg_state = WAITING_CMND_TYPE;
@@ -697,7 +697,7 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
         case WAITING_CMND_CONTROL_VALUE:
             if (strcmpram2pgm("type=variable", xpl_rx_buffer_shadow) == 0) {
                 // do nothing
-            } else if (strncmpram2pgm("current=", xpl_rx_buffer_shadow, 8) == 0) {
+            } else if (strncmpram2pgm((rom char *)"current=", xpl_rx_buffer_shadow, 8) == 0) {
                 // Extract the value to set the PWM to
                 strcpy(input_value, xpl_rx_buffer_shadow + 8);
                 strlength = strlen(input_value);
@@ -728,7 +728,7 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
             // what we write here depends on the node type, this is not yet generic code :(
             // maybe we need to implement here a function from the xpl_impl.c file
             // For now we just parse the instance_id and put it in EEPROM
-            if (strncmpram2pgm("newconf=", xpl_rx_buffer_shadow, 8) == 0) {
+            if (strncmpram2pgm((rom char *)"newconf=", xpl_rx_buffer_shadow, 8) == 0) {
                 // Make sure we're not receiving data right now, as interrupts will be disabled during EEPROM write later in this function
                 if (xpl_flow == FLOW_ON) {
                     xpl_flow = FLOW_OFF;

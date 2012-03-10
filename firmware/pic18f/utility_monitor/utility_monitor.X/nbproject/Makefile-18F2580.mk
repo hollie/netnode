@@ -41,11 +41,11 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/eeprom.o ${OBJECTDIR}/_ext/1472/oo.o ${OBJECTDIR}/_ext/1472/utility_monitor.o ${OBJECTDIR}/_ext/1472/xpl.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/eeprom.o.d ${OBJECTDIR}/_ext/1472/oo.o.d ${OBJECTDIR}/_ext/1472/utility_monitor.o.d ${OBJECTDIR}/_ext/1472/xpl.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/eeprom.o ${OBJECTDIR}/_ext/1472/oo.o ${OBJECTDIR}/_ext/1472/utility_monitor.o ${OBJECTDIR}/_ext/1472/xpl.o ${OBJECTDIR}/_ext/1472/shtxx.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/eeprom.o.d ${OBJECTDIR}/_ext/1472/oo.o.d ${OBJECTDIR}/_ext/1472/utility_monitor.o.d ${OBJECTDIR}/_ext/1472/xpl.o.d ${OBJECTDIR}/_ext/1472/shtxx.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/eeprom.o ${OBJECTDIR}/_ext/1472/oo.o ${OBJECTDIR}/_ext/1472/utility_monitor.o ${OBJECTDIR}/_ext/1472/xpl.o
+OBJECTFILES=${OBJECTDIR}/_ext/1472/eeprom.o ${OBJECTDIR}/_ext/1472/oo.o ${OBJECTDIR}/_ext/1472/utility_monitor.o ${OBJECTDIR}/_ext/1472/xpl.o ${OBJECTDIR}/_ext/1472/shtxx.o
 
 
 CFLAGS=
@@ -79,51 +79,63 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/_ext/1472/eeprom.o: ../eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/eeprom.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)   -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/eeprom.o   ../eeprom.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/eeprom.o   ../eeprom.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/eeprom.o 
 	
 ${OBJECTDIR}/_ext/1472/oo.o: ../oo.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/oo.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)   -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/oo.o   ../oo.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/oo.o   ../oo.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/oo.o 
 	
 ${OBJECTDIR}/_ext/1472/utility_monitor.o: ../utility_monitor.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/utility_monitor.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)   -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/utility_monitor.o   ../utility_monitor.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/utility_monitor.o   ../utility_monitor.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/utility_monitor.o 
 	
 ${OBJECTDIR}/_ext/1472/xpl.o: ../xpl.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/xpl.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)   -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/xpl.o   ../xpl.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/xpl.o   ../xpl.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/xpl.o 
+	
+${OBJECTDIR}/_ext/1472/shtxx.o: ../shtxx.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1472 
+	@${RM} ${OBJECTDIR}/_ext/1472/shtxx.o.d 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/shtxx.o   ../shtxx.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/shtxx.o 
 	
 else
 ${OBJECTDIR}/_ext/1472/eeprom.o: ../eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/eeprom.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)   -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/eeprom.o   ../eeprom.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/eeprom.o   ../eeprom.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/eeprom.o 
 	
 ${OBJECTDIR}/_ext/1472/oo.o: ../oo.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/oo.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)   -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/oo.o   ../oo.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/oo.o   ../oo.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/oo.o 
 	
 ${OBJECTDIR}/_ext/1472/utility_monitor.o: ../utility_monitor.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/utility_monitor.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)   -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/utility_monitor.o   ../utility_monitor.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/utility_monitor.o   ../utility_monitor.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/utility_monitor.o 
 	
 ${OBJECTDIR}/_ext/1472/xpl.o: ../xpl.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/xpl.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)   -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/xpl.o   ../xpl.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/xpl.o   ../xpl.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/xpl.o 
+	
+${OBJECTDIR}/_ext/1472/shtxx.o: ../shtxx.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1472 
+	@${RM} ${OBJECTDIR}/_ext/1472/shtxx.o.d 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/shtxx.o   ../shtxx.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/shtxx.o 
 	
 endif
 
