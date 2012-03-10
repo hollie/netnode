@@ -1,0 +1,35 @@
+wait 10 sec
+"xpl-cmnd"
+0A
+"{"
+0A
+"hop=1"
+0A
+"sour"
+wait 100 ms
+"ce=me-test.send"
+wait 100 ms
+"er"
+0A
+"target=*"
+0A
+"}"
+0A
+"control"
+wait 100 ms
+".basic"
+0A
+"{"
+0A
+"device=p"
+wait 50 ms
+"wmout"
+0A
+"type=variable"
+0A
+wait 50 ms
+"value=255"
+0A
+"}"
+0A
+wait 1 s

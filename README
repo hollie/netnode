@@ -1,0 +1,59 @@
+This is the repository for the netnode project. 
+
+WHAT IS THIS?
+-------------
+
+The netnode is an ethernet-connected microcontroller. It is designed as a generic electronics
+platform that can be used to automate various tasks in and around the house.
+
+The first version is built around a Microchip PIc microcontroller and a LanTronix XPORT 
+serial to ethernet convertor.
+
+In this form, the netnode is running for over 5 years at our home. It is used to control
+electrical blinds, to measure temperatures in our HVAC system, to monitor our solar heating
+installation, to measure the output of a photovoltaic installation and to interface to wireless
+sensors.
+
+The latest developments around the netnode focus on adding a standard interface for reporting
+sensors data and to control basic devices. The selected standard is xPL, because it allows coupling
+the netnode to a vast amount of existing software such as e.g. Misterhouse.
+
+This repository is divided in three sections: 
+ * hardware: the hardware design files of the netnode. The netnode is designed in Eagle and
+    the design is open source. Feel free to adapt/modify
+ * firmware: the firmware for the controller on the netnode. Currently there is only a single 
+    subfolder here. All existing firmware is mapped on a netnode v1.x that is based on a Microchip 
+    PIC18F controller.
+ * software: various host software packages used to interface to a netnode running a certain
+    firmware. Most of the subfolders here implement a kind of datalogging functionality.
+    
+AUTHOR
+------
+
+The netnode is designed by Lieven Hollevoet at the time he was building his house. His goal was to
+build a low-energy home, and setting such a goal of course implies deploying a measurement
+network to check if the efforts were worthwile.
+After experimenting with a CAN-based solution, he decided ethernet was the way to go. The main 
+reasons to go for ethernet were that the cabling was already present, and that on the computer 
+interface side ethernet is an interface that is available on every computing device, opposed to CAN
+which isn't. 
+
+CREDITS
+-------
+
+Some 'equal-minded' people have contributed to the codebase. 
+
+Dirk Buekenhoudt helped in coding and debugging the xpl interface code. He is 
+currently working on adding digital inputs and outputs.
+
+Roeland Vandebriel wrote the initial code for the SHT7x humidity sensors and is working on merging
+my Technische Alternative DL output interface code that I initially wrote for the TA UVR61-1. He is
+working on interfacing to the TA UVR1611.
+
+LICENSE
+-------
+
+All work in this repository is available under the Creative Commons 
+Attribution-NonCommercial-ShareAlike license 3.0.
+
+http://creativecommons.org/licenses/by-nc-sa/3.0/

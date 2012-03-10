@@ -1,0 +1,20 @@
+This file keeps track of the firmware versions of the utility monitor.
+
+4.5 20120307 Backported relevant bugfixes/code enhancement to the xpl code from the ionode developed by Dirk.
+
+4.4 20110823 Bugfix in the PWM response code, made it standard compliant
+
+4.3 20110117 Added PWM support, added random backoff for the heartbeat so that the network does not get flooded on startup
+
+4.2          Internal release
+
+4.1 20110106 Beta release that uses the packetisation feature in the XPORT. Requires XPORT configuration update before putting the node in production!
+             Increased the counters to be 16 bit counters
+			 
+4.0 20101229 Added OneWire support for temperature sensors.
+
+3   20101220 Major bugfix: all pre-3 releases crash when multiple nodes are present on the same subnet
+
+All older firmware versions were alpha version and are not listed in this overview.
+ 			 
+

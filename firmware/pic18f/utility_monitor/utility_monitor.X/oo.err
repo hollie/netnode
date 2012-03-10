@@ -1,0 +1,3 @@
+Warning[2105] ../oo.c 45 : "Assuming clock frequency of 32 MHz, adjust the delays accordingly when using another frequency"	
+Warning[2066] ../oo.c 605 : type qualifier mismatch in assignment
+Warning[2066] ../oo.c 607 : type qualifier mismatch in assignment
