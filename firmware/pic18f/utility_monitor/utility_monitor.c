@@ -5,10 +5,12 @@
 * Performs debouncing before the count is incremented
 *
 * Supports onewire temperature devices connected to RA0
+* Supports an SHT humidity sensor connected to RA3 (clk)
+*  and RA4(data). Needs a pullup on RA4 of 10k.
 *
 * (c) 2009-2010, Lieven Hollevoet.
 **************************************************************
-* target device   : PIC18F2520
+* target device   : PIC18F2520/PIC18F2580
 * clockfreq       : 32 MHz (internal oscillator + PLL)
 * target hardware : NetNode
 * UART speed      : 38400 bps
@@ -27,6 +29,7 @@
 #include "fuses.h"
 #include "utility_monitor.h"
 #include "oo.h"
+#include "shtxx.h"
 #include "xpl.h"
 #include "eeprom.h"
 
@@ -55,6 +58,10 @@ void main()
 	*/
 	// Hardware initialisation
 	init();
+
+        sht_init();
+        sht_do_measure();
+
 
 	// Init the xPL library
 	xpl_init();
@@ -89,9 +96,9 @@ void init(void)
 	OSCCONbits.IRCF2 = 1;
 	OSCTUNEbits.PLLEN = 1;
 
-	// All digital IO's on ports
+	// All digital IO's on port A
 	ADCON1 = 0x0F;
-	
+
 	// Set port direction bits
 	TRISA = PortAConfig;    
 	TRISB = PortBConfig;

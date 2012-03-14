@@ -12,11 +12,6 @@
 #ifndef _UTILMONI_H_
 #define _UTILMONI_H_
 
-// Define the device ID and firmware version
-#define DEVICE_ID	0x00
-#define FIRMWARE_MAJOR  0x00
-#define FIRMWARE_MINOR  0x00
-
 // Define port directions, 1=input
 #define PortAConfig  	0xEF  
 #define PortBConfig  	0x07   

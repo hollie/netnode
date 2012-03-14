@@ -1,5 +1,7 @@
 This file keeps track of the firmware versions of the utility monitor.
 
+4.6 20120314 Added support for the SHTxx humidity sensors
+
 4.5 20120307 Backported relevant bugfixes/code enhancement to the xpl code from the ionode developed by Dirk.
 
 4.4 20110823 Bugfix in the PWM response code, made it standard compliant

@@ -17,7 +17,7 @@
 
 // VERSION number
 #define XPL_VERSION_MAJOR 4
-#define XPL_VERSION_MINOR 4
+#define XPL_VERSION_MINOR 6
 
 // Uncomment the next line to enable PWM output 
 // on PORTC.2

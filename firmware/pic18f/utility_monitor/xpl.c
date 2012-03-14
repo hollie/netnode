@@ -411,7 +411,7 @@ void xpl_init(void) {
     SetDCPWM1(1000);
 #endif
 
-    // Init the helper libraries do that we know if need to
+    // Init the helper libraries so that we know if need the
     // library specific code
     if (!oo_init()) {
         xpl_node_configuration |= ONE_WIRE_PRESENT;
