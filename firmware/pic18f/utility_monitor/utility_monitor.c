@@ -35,8 +35,10 @@
 
 // Global variables used for message passing between ISR and main code
 // Set time_ticks to 295 so that we send a heartbeat message withing 5 seconds after reset
-volatile unsigned short time_ticks   = 295;
-volatile unsigned char time_ticks_oo = 0;
+volatile unsigned short time_ticks    = 295;
+volatile unsigned char time_ticks_oo  = 0;
+volatile unsigned char time_ticks_sht = 0;
+
 volatile unsigned char debounce_water;
 volatile unsigned char debounce_gas;
 volatile unsigned char debounce_elec;
@@ -47,32 +49,22 @@ volatile unsigned char debounce_elec;
 // * handle incoming xpl messages (respond on requests)
 // * send heartbeat
 // * monitor port pins for falling edges, debounce them and increment counter if required
+// * poll attached sensors when required (temperature/humitidy)
 void main()
 {
 
-	/*
+	
 	// Test code: set an initial ID in the EEPROM so that we don't have to configure the node
 	eeprom_write(0x00, 'A');
 	eeprom_write(0x01, 'F');
 	eeprom_write(0x02, '\0');
-	*/
+	
 	// Hardware initialisation
 	init();
-
-        sht_init();
-        sht_do_measure();
-
 
 	// Init the xPL library
 	xpl_init();
 
-	/* // DEBUG 
-	if (oo_get_devicecount()){
-		printf("Found %i devices\r\n", oo_get_devicecount());
-		oo_read_temperatures();
-		oo_print_device_info(0);
-	}
-	*/
 
 	while (1){
 
@@ -216,6 +208,7 @@ void high_isr(void){
    		INTCONbits.TMR0IF=0;         	// Clear interrupt flag
 		time_ticks++;
 		time_ticks_oo++;
+                time_ticks_sht++;
  	}
 
 	/* TIMER 1 INTERRUPT HANDLING */

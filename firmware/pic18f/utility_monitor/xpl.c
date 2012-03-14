@@ -19,6 +19,7 @@
 
 #include "xpl.h"
 #include "oo.h"
+#include "shtxx.h"
 #include "eeprom.h"
 
 signed char xpl_rx_fifo_write_pointer;
@@ -53,6 +54,7 @@ char xpl_trig_register = 0; /* bit 0 = GAS
 // Following variable has to be declared in the main function and should be incremented every second.
 extern volatile unsigned short time_ticks;
 extern volatile unsigned char time_ticks_oo;
+extern volatile unsigned char time_ticks_sht;
 
 unsigned short xpl_count_gas;
 unsigned short xpl_count_water;
@@ -64,18 +66,21 @@ unsigned char xpl_temp_index;
 // and to know if we need to send an xpl-trig
 signed short oo_temp_table[OO_SUPPORTED_DEVICE_COUNT];
 
+// Same goes for the humidity sensor
+sht_reading sht_read_value;
+
 enum XPL_PARSE_TYPE {
     WAITING_CMND = 0, \\
-                        CMND_RECEIVED, \\
-                        WAITING_CMND_TYPE, \\
-                        WAITING_CMND_SENSOR_REQUEST, \\
-                        WAITING_CMND_CONFIG_RESPONSE, \\
-                        WAITING_CMND_HBEAT_REQUEST, \\
-                        WAITING_CMND_CONFIG_CURRENT, \\
-                        WAITING_CMND_SENSOR_REQUEST_DEVICE, \\
-						WAITING_CMND_CONTROL_BASIC, \\
-						WAITING_CMND_CONTROL_VALUE \\
-                        };
+        CMND_RECEIVED, \\
+        WAITING_CMND_TYPE, \\
+        WAITING_CMND_SENSOR_REQUEST, \\
+        WAITING_CMND_CONFIG_RESPONSE, \\
+        WAITING_CMND_HBEAT_REQUEST, \\
+        WAITING_CMND_CONFIG_CURRENT, \\
+        WAITING_CMND_SENSOR_REQUEST_DEVICE, \\
+        WAITING_CMND_CONTROL_BASIC, \\
+	WAITING_CMND_CONTROL_VALUE \\
+                       };
 
 enum XPL_PARSE_TYPE xpl_msg_state;
 
@@ -183,6 +188,9 @@ void xpl_send_hbeat(void) {
     printf("hbeat.basic\n{\ninterval=5\nversion=%i.%i\n", XPL_VERSION_MAJOR, XPL_VERSION_MINOR);
     if (xpl_node_configuration & ONE_WIRE_PRESENT) {
         printf("tempsensors=%i\n", oo_get_devicecount());
+    }
+    if (xpl_node_configuration & SHT_PRESENT) {
+        printf("humisensor=1\n");
     }
 #ifdef PWM_ENABLED
     printf("pwmout=%i\n", xpl_pwm_value);
@@ -366,7 +374,9 @@ void xpl_init_state(void) {
 void xpl_init_instance_id(void) {
     char count;
 
-    xpl_node_configuration = 0;
+    // Only reset the configured bit and not the others that get set in
+    // the xpl_init routine!
+    xpl_node_configuration &= 0xFE;
 
     // Get the instance ID from EEPROM
     // Maximum size = 16 chars + 1 null char
@@ -417,6 +427,12 @@ void xpl_init(void) {
         xpl_node_configuration |= ONE_WIRE_PRESENT;
         oo_read_temperatures();
     }
+
+    if (sht_init() == 0) {
+        xpl_node_configuration |= SHT_PRESENT;
+    } 
+
+    printf("nodeconf=%i\n", xpl_node_configuration);
 
     xpl_init_instance_id();
 
@@ -472,6 +488,8 @@ void xpl_addbyte(char data) {
 void xpl_handler(void) {
 
     unsigned char index;
+
+    sht_reading sht_current;
 
     enum XPL_CMD_MSG_TYPE_RSP xpl_cmd_msg_type;
 
@@ -534,9 +552,9 @@ void xpl_handler(void) {
                 if (xpl_trig_register & ELEC) {
                     xpl_send_device_current(TRIG, ELEC);
                     xpl_trig_register ^= ELEC;
-                } 
+                }
                 xpl_trig_register &= 0x07; // Reset all other bits so that we only enter the if when required, but leave possibly newly set trig values that are set in the mean time
-                
+
             }
 
             // Send hbeat every 5 minutes when configured
@@ -557,7 +575,13 @@ void xpl_handler(void) {
                 oo_read_temperatures();
             }
 
-            // And check if temp trig messages need to be sent out
+            // Poll the humidity sensor every minute
+            if (time_ticks_sht > 60 && (xpl_node_configuration & SHT_PRESENT) && (xpl_node_configuration & NODE_CONFIGURED)) {
+                time_ticks_sht = 0;
+                sht_do_measure();
+            }
+
+            // Check if temp trig messages need to be sent out
             if ((xpl_node_configuration & ONE_WIRE_PRESENT) && (xpl_node_configuration & NODE_CONFIGURED) && xpl_hbeat_sent) {
                 for (index = 0; index < oo_get_devicecount(); index++) {
                     if (oo_temp_table[index] != oo_get_device_temp(index)) {
@@ -568,7 +592,17 @@ void xpl_handler(void) {
                 }
             }
 
+            // Check if sht trig messages need to be sent out
+            if ((xpl_node_configuration & SHT_PRESENT) && (xpl_node_configuration & NODE_CONFIGURED) && xpl_hbeat_sent) {
+                sht_current = sht_get_reading();
 
+                if (sht_read_value.temperature != sht_current.temperature || sht_read_value.humidity != sht_current.humidity){
+                    sht_read_value = sht_current;
+                    xpl_send_device_current(TRIG, SHT_TEMP);
+                    xpl_send_device_current(TRIG, SHT_HUMI);
+                    xpl_send_device_current(TRIG, SHT_DEW);
+                }
+            }
             break;
         default:
             printf("xpl_handler:default - state %d - WE SHOULD NEVER BE HERE ", xpl_state);
@@ -596,7 +630,7 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
             if (strcmpram2pgm("target=*", xpl_rx_buffer_shadow) == 0) {
                 // Yes, message is wildcard and hence destined to us
                 xpl_msg_state = WAITING_CMND_TYPE;
-            } else if (strncmpram2pgm((rom char *)"target=hollie-utilmon.", xpl_rx_buffer_shadow, XPL_TARGET_VENDOR_DEVICEID_INSTANCE_ID_OFFSET) == 0) {
+            } else if (strncmpram2pgm((rom char *) "target=hollie-utilmon.", xpl_rx_buffer_shadow, XPL_TARGET_VENDOR_DEVICEID_INSTANCE_ID_OFFSET) == 0) {
                 if (strcmp(xpl_instance_id, xpl_rx_buffer_shadow + XPL_TARGET_VENDOR_DEVICEID_INSTANCE_ID_OFFSET) == 0) {
                     // bingo message if for us
                     xpl_msg_state = WAITING_CMND_TYPE;
@@ -632,9 +666,9 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
                 xpl_msg_state = WAITING_CMND;
                 return CONFIG_STATUS_MSG_TYPE;
             } else if (xpl_rx_buffer_shadow[0] == '{') {
-    		//do nothing
-    	    } else {
-    		xpl_msg_state = WAITING_CMND;
+                //do nothing
+            } else {
+                xpl_msg_state = WAITING_CMND;
             }
             break;
         case WAITING_CMND_HBEAT_REQUEST:
@@ -647,9 +681,9 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
                 Delay10KTCYx(time_ticks / 10);
                 return HEARTBEAT_MSG_TYPE;
             } else if (xpl_rx_buffer_shadow[0] == '{') {
-    		//do nothing
-    	    } else {
-    		xpl_msg_state = WAITING_CMND;
+                //do nothing
+            } else {
+                xpl_msg_state = WAITING_CMND;
             }
             break;
         case WAITING_CMND_SENSOR_REQUEST:
@@ -697,7 +731,7 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
         case WAITING_CMND_CONTROL_VALUE:
             if (strcmpram2pgm("type=variable", xpl_rx_buffer_shadow) == 0) {
                 // do nothing
-            } else if (strncmpram2pgm((rom char *)"current=", xpl_rx_buffer_shadow, 8) == 0) {
+            } else if (strncmpram2pgm((rom char *) "current=", xpl_rx_buffer_shadow, 8) == 0) {
                 // Extract the value to set the PWM to
                 strcpy(input_value, xpl_rx_buffer_shadow + 8);
                 strlength = strlen(input_value);
@@ -728,7 +762,7 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
             // what we write here depends on the node type, this is not yet generic code :(
             // maybe we need to implement here a function from the xpl_impl.c file
             // For now we just parse the instance_id and put it in EEPROM
-            if (strncmpram2pgm((rom char *)"newconf=", xpl_rx_buffer_shadow, 8) == 0) {
+            if (strncmpram2pgm((rom char *) "newconf=", xpl_rx_buffer_shadow, 8) == 0) {
                 // Make sure we're not receiving data right now, as interrupts will be disabled during EEPROM write later in this function
                 if (xpl_flow == FLOW_ON) {
                     xpl_flow = FLOW_OFF;

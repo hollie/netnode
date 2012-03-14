@@ -18,33 +18,27 @@ enum {
     TEMP, HUMI
 };
 
+sht_reading value_read;
+
 char StatusReg;
 char CheckSum;
 unsigned int CurrentValue;
 unsigned int CurrentHumi;
 unsigned int CurrentTemp;
 
-typedef union {
-    unsigned int i;
-    float f;
-} Values;
-//----------------------------------------------------------------------------------
-// modul-var
-//----------------------------------------------------------------------------------
-
-
-
 
 #define noACK 0
 #define ACK   1
-//adr  command  r/w
+//                            adr  command  r/w
 #define STATUS_REG_W 0x06   //000   0011    0
 #define STATUS_REG_R 0x07   //000   0011    1
 #define MEASURE_TEMP 0x03   //000   0001    1
 #define MEASURE_HUMI 0x05   //000   0010    1
 #define RESET        0x1e   //000   1111    0
 
-void sht_init() {
+// Hardware initialization, tries to detect if a sensor is present
+// Returns 0 if is a sensor connected.
+char sht_init() {
 
     // Clock line needs to be output
     //TRISAbits.RA4 = 0;
@@ -54,6 +48,7 @@ void sht_init() {
     DATA(1);
     SHT_DATA = 0;
 
+    return sht_do_measure();
 }
 
 //----------------------------------------------------------------------------------
@@ -383,4 +378,10 @@ char sht_do_measure() {
         printf("SHTxx T:%i.%i C RH:%d DewPt: %i.%i\r\n", temp_whole, temp_part, (unsigned char)humi_val_f, dew_whole, dew_part);
     }
     return error;
+}
+
+// Only call this function after it was verified sht_do_measure does not return in error
+sht_reading sht_get_reading(){
+    sht_do_measure();
+    return value_read;
 }

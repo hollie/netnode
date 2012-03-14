@@ -33,16 +33,24 @@
 #define XPL_RXFIFO_SIZE 40
 #define XPL_RXFIFO_SIZE_THESHOLD (XPL_RXFIFO_SIZE - 10)
 
-enum XPL_DEVICE_TYPE      {GAS = 1,     \\
-                           WATER = 2,   \\
-                           ELEC = 4,    \\
-                           TEMP = 8,    \\
-                           PWM = 16,    \\
-                           };
+// Bits 0-2 are reserved for masking a trigger register, ensure not to keep
+// those values to the state they are
+enum XPL_DEVICE_TYPE  { \\
+        GAS      = 1, \\
+        WATER    = 2, \\
+        ELEC     = 4, \\
+        TEMP     = 5, \\
+        PWM      = 6, \\
+        SHT_TEMP = 7, \\
+        SHT_HUMI = 8, \\
+        SHT_DEW  = 9, \\
+                      };
 
-enum XPL_DEVICE_CONFIGURATION     {NODE_CONFIGURED = 1,     \\
-                                   ONE_WIRE_PRESENT = 2,    \\
-                                   };
+enum XPL_DEVICE_CONFIGURATION { \\
+        NODE_CONFIGURED = 1,     \\
+        ONE_WIRE_PRESENT = 2,    \\
+        SHT_PRESENT = 4,         \\
+                              };
 
 // public functions called outside xpl lib
 void xpl_init(void);
