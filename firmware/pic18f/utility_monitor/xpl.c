@@ -249,7 +249,7 @@ void xpl_send_stat_config(void) {
     return;
 }
 
-void xpl_send_sensor_basic(enum XPL_MSG_TYPE msg_type, const rom far char* device, unsigned short count) {
+void xpl_send_sensor_basic_count(enum XPL_MSG_TYPE msg_type, const rom far char* device, unsigned short count) {
     xpl_print_header(msg_type);
     printf("sensor.basic\n{\ndevice=");
     printf(device);
@@ -309,9 +309,44 @@ void xpl_send_sensor_basic_pwm(enum XPL_MSG_TYPE msg_type) {
     return;
 }
 
+// Report the sensor readings of the SHT humidity sensor.
+// This function generates three messages for the sensors:
+//   sht_temp (reporting a temperature in degrees C)
+//   sht_humidity (reporting relative humidity in %)
+//   sht_dewpoint (reporting a temperature in defrees C)
+void xpl_send_sensor_basic_sht(enum XPL_MSG_TYPE msg_type) {
+    sht_reading sht = sht_get_reading();
+
+    signed char temp_whole;
+    signed char dew_whole;
+    unsigned char temp_part;
+    unsigned char dew_part;
+
+    temp_whole = (signed char) sht.temperature;
+    temp_part  = (unsigned char) (sht.temperature * 100 - (float) temp_whole * 100);
+    dew_whole  = (signed char) sht.dewpoint;
+    dew_part   = (unsigned char) (sht.dewpoint * 100 - (float) dew_whole * 100);
+
+    // Report temperature sensor status
+    xpl_print_header(msg_type);
+    printf("sensor.basic\n{\ndevice=sht_temp\n");
+    printf("type=temp\ncurrent=%i.%i\n}\n", temp_whole, temp_part);
+
+    // Report humidity
+    xpl_print_header(msg_type);
+    printf("sensor.basic\n{\ndevice=sht_humidity\n");
+    printf("type=humidity\ncurrent=%i\n}\n", sht.humidity);
+
+    // Report dewpoint
+    xpl_print_header(msg_type);
+    printf("sensor.basic\n{\ndevice=sht_dewpoint\n");
+    printf("type=temp\ncurrent=%i.%i\n}\n", dew_whole, dew_part);
+
+    return;
+}
+
 void xpl_send_device_current(enum XPL_MSG_TYPE msg_type, enum XPL_DEVICE_TYPE type) {
     unsigned short count = 1;
-
 
     switch (type) {
         case GAS:
@@ -319,27 +354,30 @@ void xpl_send_device_current(enum XPL_MSG_TYPE msg_type, enum XPL_DEVICE_TYPE ty
                 count = xpl_count_gas;
                 xpl_count_gas = xpl_count_gas - count;
             }
-            xpl_send_sensor_basic(msg_type, "gas", count);
+            xpl_send_sensor_basic_count(msg_type, "gas", count);
             break;
         case WATER:
             if (msg_type == STAT) {
                 count = xpl_count_water;
                 xpl_count_water = xpl_count_water - count;
             }
-            xpl_send_sensor_basic(msg_type, "water", count);
+            xpl_send_sensor_basic_count(msg_type, "water", count);
             break;
         case ELEC:
             if (msg_type == STAT) {
                 count = xpl_count_elec;
                 xpl_count_elec = xpl_count_elec - count;
             }
-            xpl_send_sensor_basic(msg_type, "elec", count);
+            xpl_send_sensor_basic_count(msg_type, "elec", count);
             break;
         case TEMP:
             xpl_send_sensor_basic_temperature(msg_type, xpl_temp_index);
             break;
         case PWM:
             xpl_send_sensor_basic_pwm(msg_type);
+            break;
+        case SHT:
+            xpl_send_sensor_basic_sht(msg_type);
             break;
     }
     return;
@@ -598,9 +636,9 @@ void xpl_handler(void) {
 
                 if (sht_read_value.temperature != sht_current.temperature || sht_read_value.humidity != sht_current.humidity){
                     sht_read_value = sht_current;
-                    xpl_send_device_current(TRIG, SHT_TEMP);
-                    xpl_send_device_current(TRIG, SHT_HUMI);
-                    xpl_send_device_current(TRIG, SHT_DEW);
+                    xpl_send_device_current(TRIG, SHT);
+                    //xpl_send_device_current(TRIG, SHT_HUMI);
+                    //xpl_send_device_current(TRIG, SHT_DEW);
                 }
             }
             break;

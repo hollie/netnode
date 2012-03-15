@@ -41,9 +41,7 @@ enum XPL_DEVICE_TYPE  { \\
         ELEC     = 4, \\
         TEMP     = 5, \\
         PWM      = 6, \\
-        SHT_TEMP = 7, \\
-        SHT_HUMI = 8, \\
-        SHT_DEW  = 9, \\
+        SHT      = 7, \\
                       };
 
 enum XPL_DEVICE_CONFIGURATION { \\

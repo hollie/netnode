@@ -323,8 +323,12 @@ float calc_dewpoint(float h, float t)
     return dew_point;
 }
 
-//----------------------------------------------------------------------------------
-
+// Perform a mreasurement and store the result in the 'value_read'
+// variable for reporting through the sht_get_reading function.
+// This function only returns a char that is either '0' when the 
+// measurement went fine, or a non-zero value on error.
+// This function is called in de init function to detect if a sensor
+// is connected to the processor.
 char sht_do_measure() {
     //----------------------------------------------------------------------------------
     // sample program that shows how to use SHT11 functions
@@ -339,10 +343,6 @@ char sht_do_measure() {
 
     unsigned char error, checksum;
     unsigned int i;
-    signed char temp_whole;
-    signed char dew_whole;
-    unsigned char temp_part;
-    unsigned char dew_part;
     
     float humi_val_f;
     float temp_val_f;
@@ -358,24 +358,27 @@ char sht_do_measure() {
 
     if (error != 0) {
         s_connectionreset();
-        printf("SHTxx error: %X\n", error);
-    }        //in case of an error: connection reset
-    else {
+        //printf("SHTxx error: %X\n", error);
+    } else {
         humi_val_f = (float) humi_val_i; //converts integer to float
         temp_val_f = (float) temp_val_i; //converts integer to float
         calc_sth11(&humi_val_f, &temp_val_f);
 
         dew_point_f = calc_dewpoint(humi_val_f, temp_val_f); //calculate dew point
-        temp_val_f = 19.7;
+
+        value_read.humidity = (unsigned char) humi_val_f;
+        value_read.temperature = temp_val_f;
+        value_read.dewpoint = dew_point_f;
+
         // printf does not support float, so calc integer and fractional part of the temperatures
         // Convert float to two chars, as the printf does not support printing floats
-        temp_whole = (signed char) temp_val_f;
-        temp_part  = (unsigned char) (temp_val_f * 100 - (float) temp_whole * 100);
-        dew_whole  = (signed char) dew_point_f;
-        dew_part   = (unsigned char) (dew_point_f * 100 - (float) dew_whole * 100);
+        //temp_whole = (signed char) temp_val_f;
+        //temp_part  = (unsigned char) (temp_val_f * 100 - (float) temp_whole * 100);
+        //dew_whole  = (signed char) dew_point_f;
+        //dew_part   = (unsigned char) (dew_point_f * 100 - (float) dew_whole * 100);
 
 
-        printf("SHTxx T:%i.%i C RH:%d DewPt: %i.%i\r\n", temp_whole, temp_part, (unsigned char)humi_val_f, dew_whole, dew_part);
+        //printf("SHTxx T:%i.%i C RH:%d DewPt: %i.%i\r\n", temp_whole, temp_part, (unsigned char)humi_val_f, dew_whole, dew_part);
     }
     return error;
 }
