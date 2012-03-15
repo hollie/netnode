@@ -18,14 +18,14 @@ enum {
     TEMP, HUMI
 };
 
-sht_reading value_read;
+//sht_reading value_read;
+unsigned char sht_humidity;
+signed short  sht_temperature;
+signed short  sht_dewpoint;
 
 char StatusReg;
 char CheckSum;
 unsigned int CurrentValue;
-unsigned int CurrentHumi;
-unsigned int CurrentTemp;
-
 
 #define noACK 0
 #define ACK   1
@@ -268,7 +268,7 @@ char s_measure(unsigned char mode)
     CurrentValue = MSB * 256 + LSB;
     CheckSum = s_read_byte(noACK); //read checksum
 
-    printf("Read for mode %d resulted in %02X%02X", mode, MSB, LSB);
+    //printf("Read for mode %d resulted in %02X%02X", mode, MSB, LSB);
     return error;
 
 }
@@ -343,10 +343,10 @@ char sht_do_measure() {
 
     unsigned char error, checksum;
     unsigned int i;
-    
+
     float humi_val_f;
     float temp_val_f;
-    float dew_point_f;
+    float dewpoint_f;
 
     s_connectionreset();
 
@@ -364,11 +364,14 @@ char sht_do_measure() {
         temp_val_f = (float) temp_val_i; //converts integer to float
         calc_sth11(&humi_val_f, &temp_val_f);
 
-        dew_point_f = calc_dewpoint(humi_val_f, temp_val_f); //calculate dew point
+        dewpoint_f = calc_dewpoint(humi_val_f, temp_val_f); //calculate dew point
 
-        value_read.humidity = (unsigned char) humi_val_f;
-        value_read.temperature = temp_val_f;
-        value_read.dewpoint = dew_point_f;
+        //value_read.humidity    = (unsigned char) humi_val_f;
+        //value_read.temperature = (signed short)temp_val_f * 100;
+        //value_read.dewpoint    = (signed short)dewpoint_f * 100;
+        sht_humidity    = (unsigned char) (humi_val_f + 0.5);
+        sht_temperature = (signed short) (temp_val_f * 100);
+        sht_dewpoint    = (signed short) (dewpoint_f * 100);
 
         // printf does not support float, so calc integer and fractional part of the temperatures
         // Convert float to two chars, as the printf does not support printing floats
@@ -384,7 +387,22 @@ char sht_do_measure() {
 }
 
 // Only call this function after it was verified sht_do_measure does not return in error
-sht_reading sht_get_reading(){
-    sht_do_measure();
-    return value_read;
+// The temperatures are returned as type unsigned short multiplied by 100
+// because the C18 compiler is not too supportive of floats, both in passing values
+// through the union and in printing them
+//sht_reading sht_get_reading(){
+//    //sht_do_measure();
+//    return value_read;
+//}
+
+signed short sht_get_temperature(){
+    return sht_temperature;
+}
+
+signed short sht_get_dewpoint(){
+    return sht_dewpoint;
+}
+
+unsigned char sht_get_humidity(){
+    return sht_humidity;
 }

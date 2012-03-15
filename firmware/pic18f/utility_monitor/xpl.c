@@ -67,7 +67,8 @@ unsigned char xpl_temp_index;
 signed short oo_temp_table[OO_SUPPORTED_DEVICE_COUNT];
 
 // Same goes for the humidity sensor
-sht_reading sht_read_value;
+signed short sht_temp;
+unsigned char sht_humi;
 
 enum XPL_PARSE_TYPE {
     WAITING_CMND = 0, \\
@@ -315,17 +316,19 @@ void xpl_send_sensor_basic_pwm(enum XPL_MSG_TYPE msg_type) {
 //   sht_humidity (reporting relative humidity in %)
 //   sht_dewpoint (reporting a temperature in defrees C)
 void xpl_send_sensor_basic_sht(enum XPL_MSG_TYPE msg_type) {
-    sht_reading sht = sht_get_reading();
 
+    signed short sht_tmp = sht_get_temperature();
+    signed short sht_dew = sht_get_dewpoint();
+    unsigned char sht_hm = sht_get_humidity();
     signed char temp_whole;
     signed char dew_whole;
     unsigned char temp_part;
     unsigned char dew_part;
 
-    temp_whole = (signed char) sht.temperature;
-    temp_part  = (unsigned char) (sht.temperature * 100 - (float) temp_whole * 100);
-    dew_whole  = (signed char) sht.dewpoint;
-    dew_part   = (unsigned char) (sht.dewpoint * 100 - (float) dew_whole * 100);
+    temp_whole = (signed char) (sht_temp / 100);
+    temp_part  = (unsigned char) (sht_temp - temp_whole * 100);
+    dew_whole  = (signed char) (sht_get_dewpoint() / 100);
+    dew_part   = (unsigned char) (sht_get_dewpoint() - dew_whole * 100);
 
     // Report temperature sensor status
     xpl_print_header(msg_type);
@@ -335,7 +338,7 @@ void xpl_send_sensor_basic_sht(enum XPL_MSG_TYPE msg_type) {
     // Report humidity
     xpl_print_header(msg_type);
     printf("sensor.basic\n{\ndevice=sht_humidity\n");
-    printf("type=humidity\ncurrent=%i\n}\n", sht.humidity);
+    printf("type=humidity\ncurrent=%i\n}\n", sht_humi);
 
     // Report dewpoint
     xpl_print_header(msg_type);
@@ -470,8 +473,6 @@ void xpl_init(void) {
         xpl_node_configuration |= SHT_PRESENT;
     } 
 
-    printf("nodeconf=%i\n", xpl_node_configuration);
-
     xpl_init_instance_id();
 
     xpl_count_gas = 0;
@@ -527,7 +528,8 @@ void xpl_handler(void) {
 
     unsigned char index;
 
-    sht_reading sht_current;
+    signed short sht_temp_current;
+    unsigned char sht_humi_current;
 
     enum XPL_CMD_MSG_TYPE_RSP xpl_cmd_msg_type;
 
@@ -616,7 +618,7 @@ void xpl_handler(void) {
             // Poll the humidity sensor every minute
             if (time_ticks_sht > 60 && (xpl_node_configuration & SHT_PRESENT) && (xpl_node_configuration & NODE_CONFIGURED)) {
                 time_ticks_sht = 0;
-                sht_do_measure();
+                sht_do_measure(); // Perform a new measurement
             }
 
             // Check if temp trig messages need to be sent out
@@ -632,13 +634,13 @@ void xpl_handler(void) {
 
             // Check if sht trig messages need to be sent out
             if ((xpl_node_configuration & SHT_PRESENT) && (xpl_node_configuration & NODE_CONFIGURED) && xpl_hbeat_sent) {
-                sht_current = sht_get_reading();
+                sht_temp_current = sht_get_temperature();
+                sht_humi_current = sht_get_humidity();
 
-                if (sht_read_value.temperature != sht_current.temperature || sht_read_value.humidity != sht_current.humidity){
-                    sht_read_value = sht_current;
+                if (sht_temp != sht_temp_current || sht_humi != sht_humi_current){
+                    sht_temp = sht_temp_current;
+                    sht_humi    = sht_humi_current;
                     xpl_send_device_current(TRIG, SHT);
-                    //xpl_send_device_current(TRIG, SHT_HUMI);
-                    //xpl_send_device_current(TRIG, SHT_DEW);
                 }
             }
             break;
