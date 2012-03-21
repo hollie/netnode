@@ -5,7 +5,7 @@ WHAT IS THIS?
 
 The netnode is an Ethernet-connected microcontroller. It is designed as a generic electronics platform that can be used to automate various tasks in and around the house.
 
-The first version is built around a Microchip PIc microcontroller and a LanTronix XPORT serial to Ethernet convertor.
+The first version is built around a Microchip PIC microcontroller and a LanTronix XPORT serial to Ethernet convertor.
 
 In this form, the netnode is running for over 5 years at our home. It is used to control electrical blinds, to measure temperatures in our HVAC system, to monitor our solar heating installation, to measure the output of a photovoltaic installation and to interface to wireless sensors.
 
@@ -27,7 +27,7 @@ CREDITS
 
 Some 'like-minded' people have contributed to the codebase. 
 
-Dirk Buekenhoudt helped in coding and debugging the xpl interface code. He is currently working on adding digital inputs and outputs.
+Dirk Buekenhoudt helped in coding and debugging the xPL interface code. He is currently working on adding digital inputs and outputs.
 
 Roeland Vandebriel wrote the initial code for the SHT7x humidity sensors and is working on merging my Technische Alternative DL output interface code that I initially wrote for my TA UVR61-1. He is working on interfacing to the TA UVR1611.
 
