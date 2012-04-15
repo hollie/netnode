@@ -13,7 +13,7 @@ use Data::Dumper;
 #my $server_port = 80;
 #my $host = "api.pachube.com";
 my $server_port = 8080;
-my $host = "localhost";
+my $host = "192.168.1.32";
 
 my $remote = IO::Socket::INET->new( Proto     => 'tcp',
 				     PeerAddr => $host,
@@ -40,8 +40,8 @@ sub json {
 	my $humi = shift();
 
 	return <<END;
-PUT /v2/feeds/55686 HTTP/1.1\r\nUser-Agent: lieven_at_likatronix.be/0.1\r
-Host: api.pachube.com\r
+PUT / HTTP/1.1\r\nUser-Agent: curl/0.1\r
+Host: $host:$server_port\r
 Accept: */*\r
 X-PachubeApiKey: OivrtCBI0vaCBGTN46ktyluuoqeSAKxzZXlZUEdzdGlRYz0g\r
 Content-Length: 92\r
