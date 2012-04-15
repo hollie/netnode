@@ -32,7 +32,11 @@ while ($client = $server->accept()) {
 
     while ( <$client>) {
         my $frame = $_;
-	print $_;
+		print $frame;
+		if ($frame =~ /^PUT/){
+			print $client "<html></html>\n";
+		}
+		
     }
     
     # Once here, the client disconnected
