@@ -33,8 +33,8 @@ while ($client = $server->accept()) {
     while ( <$client>) {
         my $frame = $_;
 		print $frame;
-		if ($frame =~ /^PUT/){
-			print $client "<html></html>\n";
+		if ($frame =~ /^\r\n$/){
+			print $client "HTTP/1.1 200 OK\r\n\r\n";
 		}
 		
     }
