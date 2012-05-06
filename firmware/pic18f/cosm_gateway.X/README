@@ -1,0 +1,6 @@
+This firmware turns the Netnode into a sensor device that reports status to Cosm.com
+
+It supports Sensirion SHTxx relative humidity sensors, pulse counts, and OneWire temperature devices.
+
+Example feed:
+https://cosm.com/feeds/55686
