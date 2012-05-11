@@ -96,7 +96,7 @@ void cosm_report(char *name, signed short value, char scale) {
     printf("\"id\":\"%s\",\n  ", name);
     printf("\"current_value\":\"");
     if (scale) {
-        printf("%i.%i", value_whole, value_part);
+        printf("%i.%02i", value_whole, value_part);
     } else {
         printf("%i", value);
     }
