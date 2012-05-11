@@ -71,7 +71,7 @@ void cosm_connect(void) {
 void cosm_report(char *name, signed short value, char scale) {
 
     signed short value_whole;
-    unsigned short value_part;
+    signed short value_part;
 
     cosm_connect();
     if (uart_state != CONNECTED) {
@@ -79,8 +79,12 @@ void cosm_report(char *name, signed short value, char scale) {
     }
 
     if (scale) {
-        value_whole = (signed char) (value / 100);
-        value_part = (unsigned char) (value - value_whole * 100);
+        value_whole =  (value / 100);
+        value_part  =  (value - value_whole * 100);
+        if (value < 0){
+            value_part = value_part * -1;
+        }
+
     }
 
     // Report the sensor value
