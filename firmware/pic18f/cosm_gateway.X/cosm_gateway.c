@@ -37,7 +37,7 @@
 
 // Global variables used for message passing between ISR and main code
 // Set time_ticks to 50 so that we try to connect after 10 seconds the first time
-volatile unsigned short time_ticks = 50;
+volatile unsigned short time_ticks = 0;
 volatile unsigned char time_ticks_oo = 0;
 volatile unsigned char time_ticks_sht = 0;
 
@@ -47,8 +47,8 @@ volatile unsigned char debounce_elec;
 
 enum DEVICE_CONFIGURATION {
     \\
-        SHT_PRESENT = 1, \\
-        ONE_WIRE_PRESENT = 2, \\
+        SHT_PRESENT = 0, \\
+        ONE_WIRE_PRESENT = 0, \\
         };
 
 char hw_config = 0; /* mapped with DEVICE_CONFIGURATION
@@ -56,9 +56,12 @@ char hw_config = 0; /* mapped with DEVICE_CONFIGURATION
                                             bit 1 = one wire present
                     */
 
-char sensor_name[2][12] = {"humidity", "temperature"};
-char cosm_api_key[64] = "OivrtCBI0vaCBGTN46ktyluuoqeSAKxzZXlZUEdzdGlRYz0g";
+//char sensor_name[2][12] = {"humidity", "temperature"};
+//char cosm_api_key[64] = "OivrtCBI0vaCBGTN46ktyluuoqeSAKxzZXlZUEdzdGlRYz0g";
 
+char sensor_name[2][15] = {"SHTx01hum","SHTx01temp"};
+char cosm_api_key[64] = "jR8_Q2hiH3eROKC205DizG0qfLGSAKwzdmVKNmZ3bFl1TT0g";
+char FeedNr[16] = "57031";
 //////////////////////////////////////////////////////////////////
 // Main loop
 // Program strategy:
@@ -102,7 +105,7 @@ void main() {
                 sht_do_measure();
                 sht_temp = sht_get_temperature();
                 sht_humi = sht_get_humidity();
-
+            
                 cosm_report(sensor_name[0], sht_humi, 0);
                 cosm_report(sensor_name[1], sht_temp, 1);
 
