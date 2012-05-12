@@ -11,7 +11,7 @@
 #ifndef _COSM_SOCKET_H_
 #define _COSM_SOCKET_H_
 
-void cosm_init(char* auth_key);
+void cosm_init(char* auth_key, char* feedNr);
 void cosm_process_uart(char data);
 void cosm_report(char* name, signed short value, char scale);
 

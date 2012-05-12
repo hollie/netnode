@@ -89,27 +89,32 @@ void main() {
 
 
     // Init the Cosm library
-    cosm_init(cosm_api_key);
+    cosm_init(cosm_api_key, FeedNr);
 
+    sht_temp = -120;
+    sht_humi = 0;
 
     while (1) {
 
         // Check if we need to report
-        if (time_ticks == 60) {
+        if (time_ticks > 59) {
             stat0 = 0;
             time_ticks = 0;
 
 
 
-            if (hw_config & SHT_PRESENT) {
-                sht_do_measure();
-                sht_temp = sht_get_temperature();
-                sht_humi = sht_get_humidity();
+//            if (hw_config & SHT_PRESENT) {
+//                sht_do_measure();
+//                sht_temp = sht_get_temperature();
+//                sht_humi = sht_get_humidity();
+
             
                 cosm_report(sensor_name[0], sht_humi, 0);
                 cosm_report(sensor_name[1], sht_temp, 1);
+                sht_temp++;
+                sht_humi++;
 
-            }
+//            }
             stat0 = 1;
         }
 
