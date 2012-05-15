@@ -92,7 +92,7 @@ void main() {
     while (1) {
 
         // Check if we need to report
-        if (time_ticks == 60) {
+        if (time_ticks > 59) {
             stat0 = 0;
             time_ticks = 0;
 

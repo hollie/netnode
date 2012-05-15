@@ -3,3 +3,5 @@
 *.err
 *.cof
 private
+firmware/pic18f/likalibs.X/dist/default/production
+firmware/pic18f/cosm_gateway.X/build/default/production
