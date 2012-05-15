@@ -20,15 +20,17 @@ enum UART_STATE_TYPE uart_state;
 short uart_length;
 
 char* api_key;
+unsigned int feed_id;
 
 
 //////////////////////////////////////////////////////////////////
 // Init the library
 //////////////////////////////////////////////////////////////////
-void cosm_init(char* auth_key) {
+void cosm_init(char* auth_key, unsigned int feed) {
     uart_length=0;
     uart_state = IDLE;
     api_key = auth_key;
+    feed_id = feed;
     return;
 }
 
@@ -70,6 +72,7 @@ void cosm_connect(void) {
 
 void cosm_report(char *name, signed short value, char scale) {
 
+    signed short value_abs;
     signed short value_whole;
     signed short value_part;
 
@@ -79,23 +82,27 @@ void cosm_report(char *name, signed short value, char scale) {
     }
 
     if (scale) {
-        value_whole =  (value / 100);
-        value_part  =  (value - value_whole * 100);
-        if (value < 0){
-            value_part = value_part * -1;
+        value_abs = value;
+        if (value < 0) {
+            value_abs = -value;
         }
+        value_whole =  (value_abs / 100);
+        value_part  =  (value_abs - value_whole * 100);
 
     }
 
     // Report the sensor value
     printf("{\n\"method\":\"put\",\n");
-    printf("\"resource\":\"/feeds/55686\",\n");
+    printf("\"resource\":\"/feeds/%d\",\n", feed_id);
     printf("\"params\":{},\n");
     printf("\"headers\":{\"X-PachubeApiKey\":\"%s\"},\n", api_key);
     printf("\"body\":{\n \"version\":\"1.0.0\",\n \"datastreams\":[\n {\n  ");
     printf("\"id\":\"%s\",\n  ", name);
     printf("\"current_value\":\"");
     if (scale) {
+        if (value < 0) {
+            printf("-");
+        }
         printf("%i.%02i", value_whole, value_part);
     } else {
         printf("%i", value);

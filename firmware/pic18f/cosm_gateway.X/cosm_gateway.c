@@ -86,7 +86,7 @@ void main() {
 
 
     // Init the Cosm library
-    cosm_init(cosm_api_key);
+    cosm_init(cosm_api_key, 55686);
 
 
     while (1) {
