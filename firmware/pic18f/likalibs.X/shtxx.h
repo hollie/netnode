@@ -1,36 +1,30 @@
-/***********************************************************************************
-Project:          SHTxx demo program (V2.1)
-Filename:         SHTxx_Sample_Code.c
+#include <math.h>
 
-Original version: http://www.sensirion.com
+#define MaxNrSensors 5 // decrease this value if you want to reduce the mem footprint
+#define ScanMask 0x1F  // The bit into this mask set to 1 will be used as clock lines on portC
+                       // These It does not mean that a sensor should be presented
+                       // These pins will be scanned to find out if a sensor is connected.
+                       // RC5 is used as data line
+                       // RC6 & 7 are no used. So the max nr of sensors connected = 5.
 
-Ported to PSOC C compiler by Lieven Hollevoet.
-Ported to C18 compiler by Roeland Vandebriel and Lieven Hollevoet
-***********************************************************************************/
-#ifndef _SHTxx_H_
-#define _SHTxx_H_
+typedef struct sht_data {
+    unsigned char  mask;
+    int            temperature;
+    char           humidity;
+    unsigned char  crc;
+    unsigned char  valid;
+} sht_tdata;
 
-// Note: the data pin needs an external 10k pullup!
-#define SHT_DATA_TRIS  TRISAbits.RA3
-#define SHT_DATA       PORTAbits.RA3
-#define SHT_CLK_TRIS   TRISAbits.RA2
-#define SHT_CLK        PORTAbits.RA2
 
-#define DATA(value) (SHT_DATA_TRIS = (value)? 1 : 0); (SHT_DATA = value);
-#define SCK(b)      (SHT_CLK = b)
-
-/*
-typedef union {
-    signed short temperature;
-    signed short dewpoint;
-    unsigned char humidity;
-} sht_reading;
-*/
-char sht_init(void);
-char sht_do_measure(void);
-//sht_reading sht_get_reading(void);
-signed short sht_get_temperature(void);
-signed short sht_get_dewpoint(void);
-unsigned char sht_get_humidity(void);
-
-#endif // _SHTxx_H_
+void           sht_Start(void);			// Funky use of capitals to be compliant with other PSOC libs
+char           sht_do_measure(unsigned char Sensor);
+int            sht_getCurrentTemp(unsigned char Sensor);
+unsigned char  sht_getCurrentHumi(unsigned char Sensor);
+char           sht_getCurrentCRC(unsigned char Sensor);
+unsigned char  sht_getCurrentMask(unsigned char Sensor);
+unsigned char  sht_init(void);
+unsigned char  sht_SetSensor(unsigned char Sensor);
+void           sht_crc_init(void);
+unsigned char  sht_softreset(void);
+char           sht_read_statusreg(void);
+char           sht_GetDeviceCount(void);

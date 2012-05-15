@@ -37,7 +37,7 @@
 
 // Global variables used for message passing between ISR and main code
 // Set time_ticks to 50 so that we try to connect after 10 seconds the first time
-volatile unsigned short time_ticks = 0;
+volatile unsigned short time_ticks = 50;
 volatile unsigned char time_ticks_oo = 0;
 volatile unsigned char time_ticks_sht = 0;
 
@@ -47,20 +47,22 @@ volatile unsigned char debounce_elec;
 
 enum DEVICE_CONFIGURATION {
     \\
-        SHT_PRESENT = 0, \\
-        ONE_WIRE_PRESENT = 0, \\
+        SHT_PRESENT = 1, \\
+        ONE_WIRE_PRESENT = 2, \\
         };
 
 char hw_config = 0; /* mapped with DEVICE_CONFIGURATION
-                                            bit 0 = sht_present
-                                            bit 1 = one wire present
+                       bit 0 = sht_present
+                       bit 1 = one wire present
                     */
 
-//char sensor_name[2][12] = {"humidity", "temperature"};
-//char cosm_api_key[64] = "OivrtCBI0vaCBGTN46ktyluuoqeSAKxzZXlZUEdzdGlRYz0g";
+char sensor_name[10][15] = {"SHTx01hum","SHTx01temp", \
+                            "SHTx02hum","SHTx02temp", \
+                            "SHTx03hum","SHTx03temp", \
+                            "SHTx04hum","SHTx04temp", \
+                            "SHTx05hum","SHTx05temp"};
 
-char sensor_name[2][15] = {"SHTx01hum","SHTx01temp"};
-char cosm_api_key[64] = "jR8_Q2hiH3eROKC205DizG0qfLGSAKwzdmVKNmZ3bFl1TT0g";
+char cosm_api_key[64] = "blabla";
 char FeedNr[16] = "57031";
 //////////////////////////////////////////////////////////////////
 // Main loop
@@ -71,6 +73,7 @@ void main() {
 
     signed short sht_temp;
     unsigned char sht_humi;
+    unsigned char index;
 
     // Hardware initialisation
     init();
@@ -83,7 +86,7 @@ void main() {
         oo_read_temperatures();
     }
 
-    if (sht_init() == 0) {
+    if (sht_init()) {
         hw_config|= SHT_PRESENT;
     }
 
@@ -103,18 +106,17 @@ void main() {
 
 
 
-//            if (hw_config & SHT_PRESENT) {
-//                sht_do_measure();
-//                sht_temp = sht_get_temperature();
-//                sht_humi = sht_get_humidity();
+            if (hw_config & SHT_PRESENT) {
+                for (index = 0 ; index < sht_GetDeviceCount(); index++){
+                    if ( sht_do_measure(index+1) == 0) {
+                        sht_temp = sht_getCurrentTemp(index+1);
+                        sht_humi = sht_getCurrentHumi(index+1);
+                        cosm_report(sensor_name[(index*2)]  , sht_humi, 0);
+                        cosm_report(sensor_name[(index*2)+1], sht_temp, 1);
+                    }
+                }
 
-            
-                cosm_report(sensor_name[0], sht_humi, 0);
-                cosm_report(sensor_name[1], sht_temp, 1);
-                sht_temp++;
-                sht_humi++;
-
-//            }
+            }
             stat0 = 1;
         }
 
