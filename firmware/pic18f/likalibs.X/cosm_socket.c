@@ -88,12 +88,11 @@ void cosm_report(char *name, signed short value, char scale) {
         }
         value_whole =  (value_abs / 100);
         value_part  =  (value_abs - value_whole * 100);
-
     }
 
     // Report the sensor value
     printf("{\n\"method\":\"put\",\n");
-    printf("\"resource\":\"/feeds/%d\",\n", feed_id);
+    printf("\"resource\":\"/feeds/%u\",\n",feed_id);
     printf("\"params\":{},\n");
     printf("\"headers\":{\"X-PachubeApiKey\":\"%s\"},\n", api_key);
     printf("\"body\":{\n \"version\":\"1.0.0\",\n \"datastreams\":[\n {\n  ");
