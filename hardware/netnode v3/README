@@ -1,0 +1,38 @@
+Specifications of the Netnode v3
+================================
+
+Ethernet-connected PIC microcontroller
+
+Highlights:
+-----------
+* Input voltage: 5 - 30 V, short circuit protected
+* 10/100 Ethernet connection configurable through web interface on port 80
+* System voltage: 3V3
+* Can deliver up to 600 mA to target application.
+* Typical power consumption: 0.92 W with ethernet running in normal performance mode
+* 8-pin screw terminal connector with 4 GPIOs + ground connected to interrupt pins
+* 8-pin screw terminal connector with I2C, 1 PWM, 1 optically isolated input, 1 one-wire bus, 3V3 and GND 
+* 4 analog input pins broken out to non-populated header
+* ICSP header on board
+* Second serial port broken out to header to be able to easily connect XBee radio modules
+* PIC has bootloader that allows firmware upgrades over the ethernet interface (*)
+* optically isolated input designed for 12V input level (level can be changed by replacing a resistor)
+* Open hardware, you're invited to thinker with it. 
+
+Description:
+------------
+This is a PIC board that was developed to monitor the energy consumption and temperatured in and around our house. Multiple firmwares are available that can be loaded to have the board perform the functionality that is required.
+
+Available firmwares are:
+------------------------
+ * one-wire to xPL bridge. Allows connecting one-wire temperature sensors, reports their status over xPL for easy integration with existing xPL software (e.g. Misterhouse). Plug the device in your network and the sensors appear in the software.
+ * one-wire and SHTxx relative humidity to Cosm bridge. Idem as previous, but reports the sensor status to Cosm.com (previously Pachube). Ideal for people that don't have or want to keep a home server running to report sensor values to Cosm.
+ * Technische Alternative solar heating controller interface (TA UVR61-3 and alike). Reports the status of your controller and the attached sensors over xPL (*).
+ * TA to Cosm bridge. Idem as previous but reports to Cosm.com instead (*).
+
+*: to be implemented
+
+All work in this folder is available under the Creative Commons 
+Attribution-NonCommercial-ShareAlike license 3.0.
+
+http://creativecommons.org/licenses/by-nc-sa/3.0/
