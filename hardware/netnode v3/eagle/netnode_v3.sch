@@ -10550,59 +10550,6 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </deviceset>
 </devicesets>
 </library>
-<library name="mbed">
-<packages>
-<package name="OSC3.2X.2.5">
-<wire x1="-1.905" y1="-1.397" x2="-1.905" y2="-0.2794" width="0.127" layer="21"/>
-<wire x1="-1.905" y1="-0.2794" x2="-1.905" y2="1.397" width="0.127" layer="21"/>
-<wire x1="-1.905" y1="1.397" x2="1.905" y2="1.397" width="0.127" layer="21"/>
-<wire x1="1.905" y1="1.397" x2="1.905" y2="-1.397" width="0.127" layer="21"/>
-<wire x1="1.905" y1="-1.397" x2="-0.2032" y2="-1.397" width="0.127" layer="21"/>
-<wire x1="-0.2032" y1="-1.397" x2="-1.905" y2="-1.397" width="0.127" layer="21"/>
-<wire x1="-1.905" y1="-0.2794" x2="-0.2032" y2="-0.2794" width="0.127" layer="21"/>
-<wire x1="-0.2032" y1="-0.2794" x2="-0.2032" y2="-1.397" width="0.127" layer="21"/>
-<smd name="P$1" x="-1.0922" y="-0.8382" dx="1.27" dy="0.635" layer="1"/>
-<smd name="P$2" x="1.0922" y="-0.8382" dx="1.27" dy="0.635" layer="1"/>
-<smd name="P$3" x="1.0922" y="0.8382" dx="1.27" dy="0.635" layer="1"/>
-<smd name="P$4" x="-1.0922" y="0.8382" dx="1.27" dy="0.635" layer="1"/>
-<text x="-1.9812" y="1.6002" size="0.6096" layer="25">&gt;NAME</text>
-</package>
-</packages>
-<symbols>
-<symbol name="OSCILLATOR">
-<wire x1="-10.16" y1="7.62" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-7.62" x2="10.16" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-7.62" x2="10.16" y2="7.62" width="0.254" layer="94"/>
-<wire x1="10.16" y1="7.62" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
-<text x="-10.16" y="8.89" size="1.778" layer="95">&gt;NAME</text>
-<text x="-10.16" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="CLK" x="15.24" y="0" visible="pin" length="middle" rot="R180"/>
-<pin name="EN" x="-15.24" y="0" visible="pin" length="middle"/>
-<pin name="GND" x="-15.24" y="-5.08" visible="pin" length="middle"/>
-<pin name="VCC" x="-15.24" y="5.08" visible="pin" length="middle"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="OSCILLATOR" prefix="OSC" uservalue="yes">
-<gates>
-<gate name="G$1" symbol="OSCILLATOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="_2.5X3.2" package="OSC3.2X.2.5">
-<connects>
-<connect gate="G$1" pin="CLK" pad="P$3"/>
-<connect gate="G$1" pin="EN" pad="P$1"/>
-<connect gate="G$1" pin="GND" pad="P$2"/>
-<connect gate="G$1" pin="VCC" pad="P$4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="ic">
 <description>LikaTronix IC library</description>
 <packages>
@@ -10706,6 +10653,92 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="passives">
+<description>Library with proven footprints for passives, both for manual soldering as for reflow soldering.</description>
+<packages>
+<package name="7X_3.2X2.5">
+<smd name="1" x="-1.1" y="-0.85" dx="1.4" dy="1.2" layer="1"/>
+<smd name="2" x="1.1" y="-0.85" dx="1.4" dy="1.2" layer="1"/>
+<smd name="3" x="1.1" y="0.85" dx="1.4" dy="1.2" layer="1"/>
+<smd name="4" x="-1.1" y="0.85" dx="1.4" dy="1.2" layer="1"/>
+<circle x="-2.14" y="-1.47" radius="0.143178125" width="0.127" layer="21"/>
+<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.127" layer="51"/>
+<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-0.2" y1="-1.25" x2="0.2" y2="-1.25" width="0.127" layer="21"/>
+<wire x1="0.2" y1="1.25" x2="-0.2" y2="1.25" width="0.127" layer="21"/>
+<wire x1="-1.6" y1="0.05" x2="-1.6" y2="-0.05" width="0.127" layer="21"/>
+<wire x1="1.6" y1="0.05" x2="1.6" y2="-0.05" width="0.127" layer="21"/>
+<text x="-1.27" y="-2.54" size="0.6096" layer="21" font="vector" ratio="15">&gt;NAME</text>
+</package>
+<package name="7W_7X5">
+<smd name="1" x="-2.54" y="-2.1" dx="1.8" dy="2" layer="1"/>
+<smd name="2" x="2.54" y="-2.1" dx="1.8" dy="2" layer="1"/>
+<smd name="3" x="2.54" y="2.1" dx="1.8" dy="2" layer="1"/>
+<smd name="4" x="-2.54" y="2.1" dx="1.8" dy="2" layer="1"/>
+<wire x1="-3.5" y1="-2.7" x2="3.5" y2="-2.7" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="2.5" x2="3.5" y2="2.5" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="-2.6" x2="-3.5" y2="2.5" width="0.127" layer="51"/>
+<wire x1="3.5" y1="2.5" x2="3.5" y2="-2.7" width="0.127" layer="51"/>
+<circle x="-4.1" y="-2.4" radius="0.2" width="0.127" layer="21"/>
+<text x="0" y="-4.1" size="0.8128" layer="25" font="vector" ratio="15">&gt;NAME</text>
+<wire x1="-1.4" y1="2.5" x2="1.4" y2="2.5" width="0.127" layer="21"/>
+<wire x1="1.4" y1="-2.7" x2="-1.4" y2="-2.7" width="0.127" layer="21"/>
+<wire x1="3.5" y1="0.8" x2="3.5" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="-0.8" x2="-3.5" y2="0.8" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="OSC">
+<pin name="VCC" x="-12.7" y="5.08" length="middle" direction="pwr"/>
+<pin name="EN" x="-12.7" y="0" length="middle" direction="in"/>
+<pin name="GND" x="-12.7" y="-5.08" length="middle" direction="pwr"/>
+<pin name="CLK" x="12.7" y="0" length="middle" direction="out" rot="R180"/>
+<wire x1="-7.62" y1="7.62" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
+<text x="0" y="10.16" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="OSC" prefix="X">
+<description>Oscillator</description>
+<gates>
+<gate name="G$1" symbol="OSC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="_7X_3.2X2.4" package="7X_3.2X2.5">
+<connects>
+<connect gate="G$1" pin="CLK" pad="3"/>
+<connect gate="G$1" pin="EN" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="VCC" pad="4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="OC_FARNELL" value="1842161" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="7W_7X5" package="7W_7X5">
+<connects>
+<connect gate="G$1" pin="CLK" pad="3"/>
+<connect gate="G$1" pin="EN" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="VCC" pad="4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="OC_FARNELL" value="1842099" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -10845,10 +10878,10 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
 <part name="V25" library="supply2" deviceset="GND" device=""/>
-<part name="OSC1" library="mbed" deviceset="OSCILLATOR" device="_2.5X3.2" value="TXC - 7X-12.000MBB-T">
+<part name="OSC1" library="passives" deviceset="OSC" device="7W_7X5" value="TXC - 7X-12.000MBB-T">
 <attribute name="MF" value="TXC"/>
 <attribute name="MPN" value="7X-12.000MBB-T"/>
-<attribute name="OC_FARNELL" value="1842161"/>
+<attribute name="OC_FARNELL" value="1842099"/>
 </part>
 <part name="V26" library="supply2" deviceset="GND" device=""/>
 <part name="C7" library="netnode" deviceset="C-EU" device="C0603" value="100n">
@@ -10883,6 +10916,9 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="V36" library="supply2" deviceset="GND" device=""/>
 <part name="V37" library="netnode" deviceset="+3V3" device=""/>
 <part name="R2" library="rcl" deviceset="R-EU_" device="M0805"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R4" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R5" library="rcl" deviceset="R-EU_" device="R0603"/>
 </parts>
 <sheets>
 <sheet>
@@ -11079,10 +11115,13 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="MPN" x="203.2" y="93.98" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="V36" gate="GND" x="121.92" y="60.96" smashed="yes" rot="R270"/>
-<instance part="V37" gate="+3V3" x="124.46" y="66.04"/>
+<instance part="V37" gate="+3V3" x="129.54" y="68.58"/>
 <instance part="R2" gate="G$1" x="121.92" y="45.72"/>
 <instance part="RN3" gate="C" x="45.72" y="101.6" rot="R180"/>
 <instance part="RN3" gate="A" x="93.98" y="127" rot="R90"/>
+<instance part="R3" gate="G$1" x="116.84" y="66.04" rot="R90"/>
+<instance part="R4" gate="G$1" x="114.3" y="66.04" rot="R90"/>
+<instance part="R5" gate="G$1" x="111.76" y="66.04" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -11178,7 +11217,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="109.22" y1="162.56" x2="104.14" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="111.76" y1="82.55" x2="99.06" y2="82.55" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="82.55" x2="99.06" y2="82.55" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="82.55" x2="99.06" y2="77.47" width="0.1524" layer="91"/>
 <pinref part="OSC1" gate="G$1" pin="GND"/>
 <pinref part="V26" gate="GND" pin="GND"/>
@@ -11277,10 +11316,10 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="V15" gate="+3V3" pin="+3V3"/>
 </segment>
 <segment>
-<wire x1="111.76" y1="92.71" x2="104.14" y2="92.71" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="92.71" x2="104.14" y2="92.71" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="92.71" x2="99.06" y2="92.71" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="92.71" x2="99.06" y2="97.79" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="87.63" x2="104.14" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="87.63" x2="104.14" y2="87.63" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="87.63" x2="104.14" y2="92.71" width="0.1524" layer="91"/>
 <junction x="104.14" y="92.71"/>
 <pinref part="OSC1" gate="G$1" pin="EN"/>
@@ -11333,7 +11372,22 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="IO1" gate="G$1" pin="1"/>
 <pinref part="V37" gate="+3V3" pin="+3V3"/>
-<wire x1="124.46" y1="63.5" x2="132.08" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="111.76" y1="71.12" x2="111.76" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="73.66" x2="114.3" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="114.3" y1="73.66" x2="116.84" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="73.66" x2="116.84" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="114.3" y1="71.12" x2="114.3" y2="73.66" width="0.1524" layer="91"/>
+<junction x="114.3" y="73.66"/>
+<wire x1="116.84" y1="73.66" x2="121.92" y2="73.66" width="0.1524" layer="91"/>
+<junction x="116.84" y="73.66"/>
+<wire x1="121.92" y1="73.66" x2="121.92" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="63.5" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="63.5" x2="132.08" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="66.04" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
+<junction x="129.54" y="63.5"/>
 </segment>
 </net>
 <net name="XPORT_RST" class="0">
@@ -11444,9 +11498,13 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </net>
 <net name="SCL" class="1">
 <segment>
-<label x="104.14" y="50.8" size="1.778" layer="95"/>
+<label x="101.6" y="50.8" size="1.778" layer="95"/>
 <pinref part="IO1" gate="G$1" pin="6"/>
-<wire x1="132.08" y1="50.8" x2="119.38" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="50.8" x2="111.76" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="111.76" y1="50.8" x2="109.22" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="60.96" x2="111.76" y2="50.8" width="0.1524" layer="91"/>
+<junction x="111.76" y="50.8"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="RC3/REFO/SCL/SCK"/>
@@ -11462,8 +11520,12 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </segment>
 <segment>
 <pinref part="IO1" gate="G$1" pin="5"/>
-<wire x1="132.08" y1="53.34" x2="119.38" y2="53.34" width="0.1524" layer="91"/>
-<label x="111.76" y="53.34" size="1.778" layer="95"/>
+<wire x1="132.08" y1="53.34" x2="114.3" y2="53.34" width="0.1524" layer="91"/>
+<label x="101.6" y="53.34" size="1.778" layer="95"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="114.3" y1="53.34" x2="109.22" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="60.96" x2="114.3" y2="53.34" width="0.1524" layer="91"/>
+<junction x="114.3" y="53.34"/>
 </segment>
 </net>
 <net name="OPTO+" class="1">
@@ -11475,7 +11537,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="116.84" y1="45.72" x2="111.76" y2="45.72" width="0.1524" layer="91"/>
-<label x="104.14" y="45.72" size="1.778" layer="95"/>
+<label x="101.6" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OPTO-" class="1">
@@ -11485,9 +11547,9 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <label x="165.1" y="81.28" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="104.14" y="48.26" size="1.778" layer="95"/>
+<label x="101.6" y="48.26" size="1.778" layer="95"/>
 <pinref part="IO1" gate="G$1" pin="7"/>
-<wire x1="132.08" y1="48.26" x2="116.84" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="48.26" x2="111.76" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="OW" class="1">
@@ -11498,8 +11560,12 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </segment>
 <segment>
 <pinref part="IO1" gate="G$1" pin="4"/>
-<wire x1="132.08" y1="55.88" x2="119.38" y2="55.88" width="0.1524" layer="91"/>
-<label x="111.76" y="55.88" size="1.778" layer="95"/>
+<wire x1="132.08" y1="55.88" x2="116.84" y2="55.88" width="0.1524" layer="91"/>
+<label x="101.6" y="55.88" size="1.778" layer="95"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="116.84" y1="55.88" x2="109.22" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="60.96" x2="116.84" y2="55.88" width="0.1524" layer="91"/>
+<junction x="116.84" y="55.88"/>
 </segment>
 </net>
 <net name="PWM" class="1">
@@ -11510,8 +11576,8 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </segment>
 <segment>
 <pinref part="IO1" gate="G$1" pin="3"/>
-<wire x1="132.08" y1="58.42" x2="119.38" y2="58.42" width="0.1524" layer="91"/>
-<label x="104.14" y="58.42" size="1.778" layer="95"/>
+<wire x1="132.08" y1="58.42" x2="109.22" y2="58.42" width="0.1524" layer="91"/>
+<label x="101.6" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="IN0" class="1">
@@ -11673,7 +11739,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <segment>
 <label x="143.51" y="87.63" size="1.778" layer="95"/>
 <pinref part="OSC1" gate="G$1" pin="CLK"/>
-<wire x1="142.24" y1="87.63" x2="153.67" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="87.63" x2="153.67" y2="87.63" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="OSC1/CLKI/RA7"/>
@@ -11703,7 +11769,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="50.8" y1="101.6" x2="53.34" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="OPTO+_PRE_RES" class="0">
 <segment>
 <pinref part="IO1" gate="G$1" pin="8"/>
 <pinref part="R2" gate="G$1" pin="2"/>
