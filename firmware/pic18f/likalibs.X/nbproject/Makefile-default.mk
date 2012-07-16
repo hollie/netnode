@@ -15,7 +15,7 @@ include nbproject/Makefile-local-default.mk
 endif
 
 # Environment
-MKDIR=mkdir -p
+MKDIR=gnumkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -79,62 +79,62 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/cosm_socket.o: cosm_socket.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/cosm_socket.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/cosm_socket.o   cosm_socket.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/cosm_socket.o   cosm_socket.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/cosm_socket.o 
 	
 ${OBJECTDIR}/clock.o: clock.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/clock.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/clock.o   clock.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/clock.o   clock.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/clock.o 
 	
 ${OBJECTDIR}/eeprom.o: eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/eeprom.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/eeprom.o   eeprom.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/eeprom.o   eeprom.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/eeprom.o 
 	
 ${OBJECTDIR}/oo.o: oo.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/oo.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/oo.o   oo.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/oo.o   oo.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/oo.o 
 	
 ${OBJECTDIR}/shtxx.o: shtxx.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/shtxx.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/shtxx.o   shtxx.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/shtxx.o   shtxx.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/shtxx.o 
 	
 else
 ${OBJECTDIR}/cosm_socket.o: cosm_socket.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/cosm_socket.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/cosm_socket.o   cosm_socket.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/cosm_socket.o   cosm_socket.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/cosm_socket.o 
 	
 ${OBJECTDIR}/clock.o: clock.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/clock.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/clock.o   clock.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/clock.o   clock.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/clock.o 
 	
 ${OBJECTDIR}/eeprom.o: eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/eeprom.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/eeprom.o   eeprom.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/eeprom.o   eeprom.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/eeprom.o 
 	
 ${OBJECTDIR}/oo.o: oo.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/oo.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/oo.o   oo.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/oo.o   oo.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/oo.o 
 	
 ${OBJECTDIR}/shtxx.o: shtxx.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/shtxx.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/shtxx.o   shtxx.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -mL  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/shtxx.o   shtxx.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/shtxx.o 
 	
 endif
@@ -167,7 +167,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif
