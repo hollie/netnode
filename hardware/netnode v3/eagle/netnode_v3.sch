@@ -10871,7 +10871,11 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="V30" library="supply2" deviceset="GND" device=""/>
 <part name="V31" library="supply2" deviceset="GND" device=""/>
 <part name="V32" library="netnode" deviceset="+3V3" device=""/>
-<part name="IC3" library="ic" deviceset="FOD060L" device=""/>
+<part name="IC3" library="ic" deviceset="FOD060L" device="">
+<attribute name="MF" value="FAIRCHILD SEMICONDUCTOR"/>
+<attribute name="MPN" value="FOD060L"/>
+<attribute name="OC_FARNELL" value="1228309"/>
+</part>
 <part name="V33" library="supply2" deviceset="GND" device=""/>
 <part name="V34" library="netnode" deviceset="+3V3" device=""/>
 <part name="V35" library="netnode" deviceset="+3V3" device=""/>
@@ -10882,7 +10886,11 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </part>
 <part name="V36" library="supply2" deviceset="GND" device=""/>
 <part name="V37" library="netnode" deviceset="+3V3" device=""/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="M0805"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="M0805" value="2k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -11067,7 +11075,11 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="VALUE" x="177.8" y="32.258" size="1.778" layer="96"/>
 </instance>
 <instance part="V32" gate="+3V3" x="121.92" y="22.86" rot="R90"/>
-<instance part="IC3" gate="G$1" x="182.88" y="86.36"/>
+<instance part="IC3" gate="G$1" x="182.88" y="86.36">
+<attribute name="OC_FARNELL" x="182.88" y="86.36" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="182.88" y="86.36" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="182.88" y="86.36" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="V33" gate="GND" x="185.42" y="68.58"/>
 <instance part="V34" gate="+3V3" x="180.34" y="101.6" rot="R90"/>
 <instance part="V35" gate="+3V3" x="203.2" y="101.6"/>
@@ -11080,7 +11092,11 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </instance>
 <instance part="V36" gate="GND" x="121.92" y="60.96" smashed="yes" rot="R270"/>
 <instance part="V37" gate="+3V3" x="124.46" y="66.04"/>
-<instance part="R2" gate="G$1" x="121.92" y="45.72"/>
+<instance part="R2" gate="G$1" x="121.92" y="45.72">
+<attribute name="OC_FARNELL" x="121.92" y="45.72" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="121.92" y="45.72" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="121.92" y="45.72" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="RN3" gate="C" x="45.72" y="101.6" rot="R180"/>
 <instance part="RN3" gate="A" x="93.98" y="127" rot="R90"/>
 </instances>

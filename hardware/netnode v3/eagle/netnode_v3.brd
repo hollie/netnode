@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="2.54" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.127" altunitdist="mm" altunit="mm"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.127" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -94,6 +94,8 @@
 <text x="50" y="44" size="1.016" layer="21">1</text>
 <text x="45" y="44" size="1.016" layer="21">2</text>
 <text x="43" y="44" size="1.016" layer="21">3</text>
+<dimension x1="0" y1="50" x2="60" y2="50" x3="30" y3="59" layer="45"/>
+<dimension x1="60" y1="50" x2="60" y2="0" x3="72" y3="25" layer="45"/>
 </plain>
 <libraries>
 <library name="netnode">
@@ -1993,6 +1995,9 @@ Your Eurocircuits Team</description>
 <element name="RN3" library="dp_devices" package="RN8P-4R-CRA06S" value="1k1" x="10.49" y="22.89" smashed="yes">
 <attribute name="NAME" x="14.11" y="21.49" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="8.49" y="19.89" size="1.27" layer="27"/>
+<attribute name="OC_FARNELL" value="2060100" x="10.49" y="22.89" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="PANASONIC" x="10.49" y="22.89" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="EXB38V102JV" x="10.49" y="22.89" size="1.778" layer="27" display="off"/>
 </element>
 <element name="HBEAT" library="led" package="CHIPLED_1206" value="" x="13.97" y="10.16" rot="R270">
 <attribute name="OC_FARNELL" value="8530025" x="13.97" y="10.16" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2043,13 +2048,21 @@ Your Eurocircuits Team</description>
 <attribute name="NAME" x="54.6862" y="43.1612" size="1.27" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="54.61" y="50.165" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="IC3" library="ic" package="SO-08" value="FOD060L" x="5.08" y="16.51"/>
+<element name="IC3" library="ic" package="SO-08" value="FOD060L" x="5.08" y="16.51">
+<attribute name="OC_FARNELL" value="1228309" x="5.08" y="16.51" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="FAIRCHILD SEMICONDUCTOR" x="5.08" y="16.51" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="FOD060L" x="5.08" y="16.51" size="1.778" layer="27" display="off"/>
+</element>
 <element name="R1" library="rcl" package="R0603" value="2K" x="5.08" y="22.86" rot="R180">
 <attribute name="MPN" value="CR0603-FX-2001ELF" x="5.08" y="22.86" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="BOURNS" x="5.08" y="22.86" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="2008337" x="5.08" y="22.86" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R2" library="rcl" package="M0805" value="" x="3.81" y="7.62" rot="R270"/>
+<element name="R2" library="rcl" package="M0805" value="2k" x="3.81" y="7.62" rot="R270">
+<attribute name="OC_FARNELL" value="unknown" x="3.81" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="" x="3.81" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="" x="3.81" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="GND" class="1">
