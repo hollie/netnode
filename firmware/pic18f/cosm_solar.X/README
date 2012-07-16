@@ -1,0 +1,9 @@
+This firmware turns the Netnode into a device that reports solar installation production to Cosm.com
+
+The idea is to connect the netnode to the pulse output of the solar energy production meter.
+
+This code is developed by Lieven Hollevoet. More info on http://likatronix.be
+
+This work is licensed under the following license: 
+  http://creativecommons.org/licenses/by-nc-sa/3.0/
+ 
