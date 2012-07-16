@@ -8,3 +8,5 @@ firmware/pic18f/cosm_gateway.X/build/default/production
 *.s#*
 *.b#*
 hardware/netnode v3/eagle/eagleUp/*
+*.o
+*.o.d
