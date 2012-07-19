@@ -233,7 +233,7 @@ chip</description>
 <rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 </package>
-<package name="C0805">
+<package name="C0805@1">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
 chip</description>
 <wire x1="-1.973" y1="0.983" x2="1.973" y2="0.983" width="0.0508" layer="39"/>
@@ -2100,7 +2100,7 @@ Farnell order nr: 224959</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="C0805" package="C0805">
+<device name="C0805" package="C0805@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -8857,6 +8857,30 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <rectangle x1="-1.4" y1="-1.6" x2="-1.1" y2="1.6" layer="51"/>
 <rectangle x1="1.1" y1="-1.6" x2="1.4" y2="1.6" layer="51" rot="R180"/>
 </package>
+<package name="C1808">
+<description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
+Source: AVX .. aphvc.pdf</description>
+<wire x1="-1.4732" y1="0.9502" x2="1.4732" y2="0.9502" width="0.1016" layer="51"/>
+<wire x1="-1.4478" y1="-0.9502" x2="1.4732" y2="-0.9502" width="0.1016" layer="51"/>
+<smd name="1" x="-1.95" y="0" dx="1.6" dy="2.2" layer="1"/>
+<smd name="2" x="1.95" y="0" dx="1.6" dy="2.2" layer="1"/>
+<text x="-2.233" y="1.827" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.233" y="-2.842" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-2.275" y1="-1.015" x2="-1.225" y2="1.015" layer="51"/>
+<rectangle x1="1.225" y1="-1.015" x2="2.275" y2="1.015" layer="51"/>
+</package>
+<package name="C3640">
+<description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
+Source: AVX .. aphvc.pdf</description>
+<wire x1="-3.8322" y1="5.0496" x2="3.8322" y2="5.0496" width="0.1016" layer="51"/>
+<wire x1="-3.8322" y1="-5.0496" x2="3.8322" y2="-5.0496" width="0.1016" layer="51"/>
+<smd name="1" x="-4.267" y="0" dx="2.6" dy="10.7" layer="1"/>
+<smd name="2" x="4.267" y="0" dx="2.6" dy="10.7" layer="1"/>
+<text x="-4.647" y="6.465" size="1.27" layer="25">&gt;NAME</text>
+<text x="-4.647" y="-7.255" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-4.57" y1="-5.1" x2="-3.05" y2="5.1" layer="51"/>
+<rectangle x1="3.05" y1="-5.1" x2="4.5688" y2="5.1" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="R-EU">
@@ -10353,6 +10377,24 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <technology name=""/>
 </technologies>
 </device>
+<device name="C1808" package="C1808">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="C3640" package="C3640">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 </devicesets>
@@ -10787,14 +10829,14 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="MPN" value="KP-3216EC"/>
 <attribute name="OC_FARNELL" value="8530025"/>
 </part>
-<part name="XPORT" library="led" deviceset="LED" device="CHIPLED_1206">
+<part name="LINK" library="led" deviceset="LED" device="CHIPLED_1206">
 <attribute name="MF" value="KINGBRIGHT"/>
 <attribute name="MPN" value="KP-3216EC"/>
 <attribute name="OC_FARNELL" value="8530025"/>
 </part>
 <part name="V3" library="netnode" deviceset="+3V3" device=""/>
 <part name="V4" library="netnode" deviceset="+3V3" device=""/>
-<part name="C1" library="netnode" deviceset="C-EU" device="C0603" value="100n">
+<part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="100n">
 <attribute name="MF" value="AVX"/>
 <attribute name="MPN" value="08055C104JAT2A"/>
 <attribute name="OC_FARNELL" value="1740673"/>
@@ -10820,7 +10862,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="MPN" value="PIC18F45K80-I/PT"/>
 <attribute name="OC_FARNELL" value="1823169"/>
 </part>
-<part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="2K">
+<part name="R7" library="rcl" deviceset="R-EU_" device="R0805" value="2K">
 <attribute name="MF" value="BOURNS"/>
 <attribute name="MPN" value="CR0603-FX-2001ELF"/>
 <attribute name="OC_FARNELL" value="2008337"/>
@@ -10845,12 +10887,12 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="OC_FARNELL" value="8530025"/>
 </part>
 <part name="V11" library="netnode" deviceset="+3V3" device=""/>
-<part name="C3" library="rcl" deviceset="C-EU" device="C0603" value="100n">
+<part name="C3" library="rcl" deviceset="C-EU" device="C0805" value="100n">
 <attribute name="MF" value="AVX"/>
 <attribute name="MPN" value="08055C104JAT2A"/>
 <attribute name="OC_FARNELL" value="1740673"/>
 </part>
-<part name="C4" library="rcl" deviceset="C-EU" device="C0603" value="100n">
+<part name="C4" library="rcl" deviceset="C-EU" device="C0805" value="100n">
 <attribute name="MF" value="AVX"/>
 <attribute name="MPN" value="08055C104JAT2A"/>
 <attribute name="OC_FARNELL" value="1740673"/>
@@ -10884,7 +10926,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="OC_FARNELL" value="1842099"/>
 </part>
 <part name="V26" library="supply2" deviceset="GND" device=""/>
-<part name="C7" library="netnode" deviceset="C-EU" device="C0603" value="100n">
+<part name="C7" library="rcl" deviceset="C-EU" device="C0805" value="100n">
 <attribute name="MF" value="AVX"/>
 <attribute name="MPN" value="08055C104JAT2A"/>
 <attribute name="OC_FARNELL" value="1740673"/>
@@ -10908,7 +10950,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="V33" library="supply2" deviceset="GND" device=""/>
 <part name="V34" library="netnode" deviceset="+3V3" device=""/>
 <part name="V35" library="netnode" deviceset="+3V3" device=""/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="R0603" value="2K">
+<part name="R1" library="rcl" deviceset="R-EU_" device="R0805" value="2K">
 <attribute name="MF" value="BOURNS"/>
 <attribute name="MPN" value="CR0603-FX-2001ELF"/>
 <attribute name="OC_FARNELL" value="2008337"/>
@@ -10965,7 +11007,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <attribute name="MF" x="55.88" y="101.6" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="55.88" y="101.6" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="XPORT" gate="G$1" x="55.88" y="10.16" rot="R90">
+<instance part="LINK" gate="G$1" x="55.88" y="10.16" rot="R90">
 <attribute name="OC_FARNELL" x="55.88" y="10.16" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MF" x="55.88" y="10.16" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="55.88" y="10.16" size="1.778" layer="96" rot="R90" display="off"/>
@@ -11445,14 +11487,14 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <label x="68.58" y="60.96" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="XPORT" gate="G$1" pin="C"/>
+<pinref part="LINK" gate="G$1" pin="C"/>
 <wire x1="60.96" y1="10.16" x2="76.2" y2="10.16" width="0.1524" layer="91"/>
 <label x="63.5" y="10.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="1">
 <segment>
-<pinref part="XPORT" gate="G$1" pin="A"/>
+<pinref part="LINK" gate="G$1" pin="A"/>
 <wire x1="50.8" y1="10.16" x2="53.34" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="RN3" gate="B" pin="1"/>
 </segment>
