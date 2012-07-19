@@ -13,20 +13,20 @@
 #include <delays.h>
 #include "cosm_socket.h"
 
-
+extern void display_application_menu(char entry);
 
 enum UART_STATE_TYPE { IDLE = 0, WAIT_CONNECT, CONNECTED, INCOMING, WAITING_INFO, STORE_STRING, STRING_RECEIVED, WAIT_FOR_DISCONNECT};
 enum UART_STATE_TYPE uart_state;
 short uart_length;
 
 char* api_key;
-unsigned int feed_id;
+unsigned long feed_id;
 
 
 //////////////////////////////////////////////////////////////////
 // Init the library
 //////////////////////////////////////////////////////////////////
-void cosm_init(char* auth_key, unsigned int feed) {
+void cosm_init(char* auth_key, unsigned long feed) {
     uart_length=0;
     uart_state = IDLE;
     api_key = auth_key;
@@ -135,6 +135,7 @@ void cosm_process_uart(char data) {
         case 'I': // When the next character is an 'I', it is an active incoming connection. Handle it...
             if (uart_state == CONNECTED && uart_length == 2) {
                 uart_state = INCOMING;
+                display_application_menu(0);
             }
             return;
         //case '*': // End of the string that needs to be stored
@@ -156,8 +157,17 @@ void cosm_process_uart(char data) {
                         uart_length = 0;
                         return;
                     }
+                    break;
+                case INCOMING:
+                    if (data == '1') {
+                        printf("Waiting for input 1\n");
+                    }
+                    if (data == '2') {
+                        printf("Waiting for input 2\n");
+                    }
+                    break;
                 default:
-                    
+                    printf("Invalid choice\n");
                     return;
 
             }

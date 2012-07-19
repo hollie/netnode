@@ -26,6 +26,7 @@
 #include "fuses.h"
 #include "cosm_solar.h"
 #include "../likalibs.X/oo.h"
+#include "../likalibs.X/eeprom.h"
 #include "../likalibs.X/cosm_socket.h"
 
 
@@ -53,7 +54,9 @@ char hw_config = 0; /* mapped with DEVICE_CONFIGURATION
                     */
 
 char sensor_name[2][12] = {"generated", "dummy"};
-char cosm_api_key[64] = "OivrtCBI0vaCBGTN46ktyluuoqeSAKxzZXlZUEdzdGlRYz0g";
+//char cosm_api_key[64] = "OivrtCBI0vaCBGTN46ktyluuoqeSAKxzZXlZUEdzdGlRYz0g";
+char cosm_api_key[64] = "HelloWorld";
+
 unsigned int cosm_feed_id  = 67597;
 
 //////////////////////////////////////////////////////////////////
@@ -69,6 +72,12 @@ void main() {
 
     // Hardware initialisation
     init();
+
+
+    // Get configuration settings from EEPROM
+    eeprom_read_block(MEM_API_KEY, cosm_api_key, sizeof cosm_api_key);
+    //eeprom_write_ulong(MEM_FEED_ID, 67597);
+    eeprom_read_block(MEM_FEED_ID, &cosm_feed_id, sizeof cosm_feed_id);
 
     elec_pulses = 0;
     elec_report = 0;
@@ -154,13 +163,13 @@ void init(void) {
             51);
 
     // Do the status LED flicker
-    while (blink_count++ < 5) {
+  /*  while (blink_count++ < 5) {
         Delay10KTCYx(50);
         stat0 = 0;
         Delay10KTCYx(50);
         stat0 = 1;
     }
-
+*/
     // Enable the main 1-sec timer that will interrupt every second
     OpenTimer0(TIMER_INT_ON &
             T0_16BIT &
@@ -310,3 +319,14 @@ void low_isr(void) {
 
 }
 
+void display_application_menu(char entry){
+    switch (entry) {
+        case 0:
+           printf("Cosm Solar v%i.%i settings menu:\n", VER_MAJOR, VER_MINOR);
+           printf("Current settings:\nFeed ID: %i\n", cosm_feed_id);
+           printf("API key: %s\n", cosm_api_key);
+           printf("Menu:\n\t[1] feed id\n\t[2] API key\n?");
+        default:
+            printf("Oops, invalid!\n");
+    }
+}

@@ -84,3 +84,40 @@ void eeprom_write(char address, char data){
 }
 
 
+// Umbrella function to write anything to EEPROM
+// Examples of usage:
+//struct { int a; unsigned char b; } s;
+//unsigned int c;
+//float d;
+//unsigned char array[10];
+//
+//eeprom_write_block(10,&s, sizeof s);
+//eeprom_write_block(20,&c, sizeof c);
+//eeprom_write_block(30, &d, sizeof d);
+//eeprom_write_block(40, array, sizeof array);
+void eeprom_write_block(unsigned short addr, void *ptr, unsigned char len)
+{
+    unsigned char *data = ptr;
+
+    while (len--) {
+        eeprom_write(addr++, *data++);
+    }
+}
+
+// Umbrella function to read anything from EEPROM
+// Examples of usage:
+// float d;
+// unsigned char array[10]
+// eeprom_read_block(30, &d, sizeof d);
+// eeprom_read_block(40, array, sizeof array);
+void eeprom_read_block(unsigned short addr, void *ptr, unsigned char len)
+{
+    unsigned char *data = ptr;
+    unsigned char data_read;
+
+    while (len--) {
+        //*data++ = eeprom_read(addr++);
+        data_read = eeprom_read(addr++);
+        *data++ = data_read;
+    }
+}

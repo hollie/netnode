@@ -66,7 +66,7 @@ FIXDEPS=fixDeps
 
 MP_PROCESSOR_OPTION=18F2580
 MP_PROCESSOR_OPTION_LD=18f2580
-MP_LINKER_DEBUG_OPTION= -u_DEBUGCODESTART=0x7dc0 -u_DEBUGCODELEN=0x240 -u_DEBUGDATASTART=0x5f4 -u_DEBUGDATALEN=0xb
+MP_LINKER_DEBUG_OPTION=
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)

@@ -15,5 +15,8 @@
 
 char  eeprom_read(char address);
 void  eeprom_write(char address, char data);
+void eeprom_write_block(unsigned short addr, void *ptr, unsigned char len);
+void eeprom_read_block(unsigned short addr, void *ptr, unsigned char len);
+
 
 #endif // _EEPROM_H_

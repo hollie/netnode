@@ -19,6 +19,10 @@
 #ifndef _COSM_GATEWAY_H_
 #define _COSM_GATEWAY_H_
 
+// Define version number
+#define VER_MAJOR 0
+#define VER_MINOR 1
+
 // Define port directions, 1=input
 #define PortAConfig  	0xEF
 #define PortBConfig  	0x07
@@ -26,6 +30,10 @@
 
 // Define bit variables attached to pins
 #define stat0    (PORTAbits.RA4)
+
+// Where are the configuration settings stored in EEPROM
+#define MEM_FEED_ID  0
+#define MEM_API_KEY  0
 
 // Timer values
 #define TMR0_VALUE 0x85EE // For a second interrupt.
