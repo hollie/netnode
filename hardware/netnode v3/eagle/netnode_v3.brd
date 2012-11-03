@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -156,8 +156,8 @@
 <text x="28" y="37.1" size="0.8128" layer="21" ratio="15">RTS</text>
 <text x="30.48" y="29.21" size="0.8128" layer="21" ratio="15">RTS</text>
 <text x="30.48" y="29.21" size="0.8128" layer="21" ratio="15">RTS</text>
-<text x="58.42" y="31.75" size="1.4224" layer="21" ratio="15" rot="R90">Netnode v3</text>
-<text x="56.6" y="31.7" size="1.4224" layer="21" ratio="15" rot="R90">LikaTronix</text>
+<text x="20.32" y="15.24" size="1.4224" layer="21" ratio="15">Netnode v3</text>
+<text x="20.27" y="17.06" size="1.4224" layer="21" ratio="15">LikaTronix</text>
 </plain>
 <libraries>
 <library name="netnode">
@@ -1782,6 +1782,99 @@ MELF 0.10 W</description>
 </package>
 </packages>
 </library>
+<library name="Eagle_Wuerth_Elektronik_Switch_Power_Elements">
+<description>&lt;BR&gt;Würth Elektronik -- Electronic Interconnect &amp; Electromechanical Solutions&lt;br&gt;&lt;Hr&gt;
+&lt;BR&gt;&lt;BR&gt; 
+&lt;TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0&gt;
+&lt;TR&gt;   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;&lt;br&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt; &lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------------------------&lt;BR&gt;
+&lt;B&gt;&lt;I&gt;&lt;span style='font-size:26pt;
+  color:#FF6600;'&gt;WE &lt;/span&gt;&lt;/i&gt;&lt;/b&gt;
+&lt;BR&gt;
+      ---------------------------&lt;BR&gt;&lt;b&gt;Würth Elektronik&lt;/b&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+
+  &lt;TR&gt;
+    &lt;TD COLSPAN=7&gt;&amp;nbsp;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+  
+&lt;/TABLE&gt;
+&lt;B&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More than you expect&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;/B&gt;
+
+&lt;HR&gt;&lt;BR&gt;
+&lt;b&gt;Würth Elektronik eiSos GmbH &amp; Co. KG&lt;/b&gt;&lt;br&gt;
+EMC &amp; Inductive Solutions&lt;br&gt;
+
+Max-Eyth-Str.1&lt;br&gt;
+D-74638 Waldenburg&lt;br&gt;
+&lt;br&gt;
+Tel: +49 (0)7942-945-0&lt;br&gt;
+Fax:+49 (0)7942-945-405&lt;br&gt;
+&lt;br&gt;
+&lt;a href="http://www.we-online.com"&gt;http://www.we-online.com&lt;/a&gt;&lt;br&gt;
+&lt;a href="mailto:pm.hotline@we-online.de"&gt;pm.hotline@we-online.de&lt;/a&gt; &lt;BR&gt;&lt;BR&gt;
+&lt;br&gt;&lt;HR&gt;&lt;BR&gt;
+Neither CadSoft nor WE-eiSos does warrant that this library is error-free or &lt;br&gt;
+that it meets your specific requirements.&lt;br&gt;&lt;BR&gt;
+Please contact us for more information.&lt;br&gt;&lt;BR&gt;&lt;br&gt;
+&lt;hr&gt;
+Version 1.2,   Feb 8-th 2012
+&lt;HR&gt;
+Copyright: Würth Elektronik</description>
+<packages>
+<package name="431181015816">
+<description>WS-TSS-5x5 mm SMD Tact Switch with ground terminal, 4 pins</description>
+<wire x1="-2.5" y1="2.5" x2="2.5" y2="2.5" width="0.127" layer="51"/>
+<wire x1="2.5" y1="2.5" x2="2.5" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="2.5" y1="-2.5" x2="-2.5" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="-2.5" x2="-2.5" y2="2.5" width="0.127" layer="51"/>
+<wire x1="-3.7" y1="2.9" x2="3.7" y2="2.9" width="0.127" layer="21"/>
+<wire x1="3.7" y1="2.9" x2="3.7" y2="-2.9" width="0.127" layer="21"/>
+<wire x1="3.7" y1="-2.9" x2="-3.7" y2="-2.9" width="0.127" layer="21"/>
+<wire x1="-3.7" y1="-2.9" x2="-3.7" y2="2.9" width="0.127" layer="21"/>
+<smd name="1" x="-3" y="-1.85" dx="1.2" dy="1.1" layer="1"/>
+<smd name="2" x="-3" y="1.85" dx="1.2" dy="1.1" layer="1"/>
+<smd name="4" x="3" y="1.85" dx="1.2" dy="1.1" layer="1"/>
+<smd name="3" x="3" y="-1.85" dx="1.2" dy="1.1" layer="1"/>
+<smd name="GND@2" x="0" y="2.525" dx="1" dy="0.45" layer="1"/>
+<smd name="GND@1" x="0" y="-2.525" dx="1" dy="0.45" layer="1"/>
+<text x="-2.54" y="-2.54" size="1.27" layer="51">1</text>
+<text x="-6.144" y="5.7077" size="1.27" layer="25">&gt;NAME</text>
+<text x="-6.144" y="-7.4858" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1795,7 +1888,7 @@ MELF 0.10 W</description>
 <clearance class="1" value="0.15"/>
 </class>
 </classes>
-<designrules>
+<designrules name="default">
 <description language="de">&lt;p&gt;
 &lt;b&gt;EAGLE design rules for the Eurocircuits STANDARD pool service 2-layer&lt;/b&gt;
 &lt;p&gt;
@@ -2154,6 +2247,7 @@ Your Eurocircuits Team</description>
 <element name="R3" library="rcl" package="R0603" value="" x="20.32" y="2.921" rot="MR270"/>
 <element name="R4" library="rcl" package="R0603" value="" x="17.78" y="2.921" rot="MR270"/>
 <element name="R5" library="rcl" package="R0603" value="" x="15.113" y="2.921" rot="MR270"/>
+<element name="SW1" library="Eagle_Wuerth_Elektronik_Switch_Power_Elements" package="431181015816" value="431181015816" x="55.88" y="33.02" rot="R90"/>
 </elements>
 <signals>
 <signal name="GND" class="1">
@@ -2251,7 +2345,6 @@ Your Eurocircuits Team</description>
 <via x="50" y="23" extent="1-16" drill="0.5"/>
 <via x="52" y="24.27" extent="1-16" drill="0.5"/>
 <via x="56" y="25" extent="1-16" drill="0.5"/>
-<via x="55" y="30" extent="1-16" drill="0.5"/>
 <via x="20" y="20" extent="1-16" drill="0.5"/>
 <via x="27" y="20" extent="1-16" drill="0.5"/>
 <via x="30" y="20" extent="1-16" drill="0.5"/>
@@ -2302,6 +2395,9 @@ Your Eurocircuits Team</description>
 <via x="30" y="12.46" extent="1-16" drill="0.5"/>
 <via x="36.43" y="28.81" extent="1-16" drill="0.5"/>
 <via x="21.87" y="7.36" extent="1-16" drill="0.5"/>
+<contactref element="SW1" pad="1"/>
+<contactref element="SW1" pad="GND@1"/>
+<contactref element="SW1" pad="GND@2"/>
 </signal>
 <signal name="VSUPPLY" class="1">
 <contactref element="IC1" pad="1"/>
@@ -2656,6 +2752,12 @@ Your Eurocircuits Team</description>
 <wire x1="51.8" y1="30.1" x2="55.23" y2="26.67" width="0.4064" layer="1" curve="-90"/>
 <wire x1="55.03" y1="23.636" x2="55.03" y2="26.47" width="0.4064" layer="1"/>
 <wire x1="55.03" y1="26.47" x2="55.23" y2="26.67" width="0.4064" layer="1" curve="-90"/>
+<contactref element="SW1" pad="2"/>
+<wire x1="54.03" y1="30.02" x2="54.03" y2="29.79" width="0.4064" layer="1"/>
+<wire x1="51.8" y1="30.1" x2="53.4" y2="30.1" width="0.4064" layer="1"/>
+<wire x1="53.4" y1="30.1" x2="54.29" y2="29.21" width="0.4064" layer="1"/>
+<wire x1="53.4" y1="30.1" x2="53.95" y2="30.1" width="0.4064" layer="1"/>
+<wire x1="53.95" y1="30.1" x2="54.03" y2="30.02" width="0.4064" layer="1"/>
 </signal>
 <signal name="PGD">
 <contactref element="ICSP" pad="4"/>
@@ -2687,12 +2789,14 @@ Your Eurocircuits Team</description>
 <signal name="AN1">
 <contactref element="IC2" pad="20"/>
 <contactref element="ANALOG" pad="2"/>
-<via x="53.34" y="33.02" extent="1-16" drill="0.5"/>
-<wire x1="53.34" y1="33.02" x2="53.34" y2="40.64" width="0.4064" layer="16"/>
 <wire x1="53.34" y1="40.64" x2="50.8" y2="43.18" width="0.4064" layer="16"/>
 <wire x1="50.8" y1="43.18" x2="50.8" y2="46.99" width="0.4064" layer="16"/>
 <wire x1="49.92" y1="31.7" x2="52.02" y2="31.7" width="0.4064" layer="1"/>
-<wire x1="52.02" y1="31.7" x2="53.34" y2="33.02" width="0.4064" layer="1" curve="90"/>
+<wire x1="53.34" y1="40.64" x2="53.34" y2="33.02" width="0.4064" layer="16"/>
+<wire x1="53.34" y1="33.02" x2="52.07" y2="31.75" width="0.4064" layer="16"/>
+<wire x1="52.07" y1="31.75" x2="52.02" y2="31.7" width="0.4064" layer="16"/>
+<via x="52.07" y="31.75" extent="1-16" drill="0.5"/>
+<wire x1="52.02" y1="31.7" x2="52.02" y2="31.7" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="AN2">
 <contactref element="IC2" pad="21"/>
