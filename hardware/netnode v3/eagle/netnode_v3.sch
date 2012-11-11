@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.3">
+<eagle version="6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -233,7 +233,7 @@ chip</description>
 <rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 </package>
-<package name="C0805@1">
+<package name="C0805">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
 chip</description>
 <wire x1="-1.973" y1="0.983" x2="1.973" y2="0.983" width="0.0508" layer="39"/>
@@ -1953,8 +1953,8 @@ package type TQ</description>
 <pin name="RB1/AN8/CTDIN/INT1" x="-35.56" y="5.08" length="short"/>
 <pin name="RB2/CANTX/CTED1/INT2" x="-35.56" y="2.54" length="short"/>
 <pin name="RB3/CANRX/CTED2/INT3" x="-35.56" y="0" length="short"/>
-<pin name="NC@0" x="-35.56" y="-2.54" length="short"/>
-<pin name="NC@1" x="-35.56" y="-5.08" length="short"/>
+<pin name="NC@0" x="-35.56" y="-2.54" length="short" direction="nc"/>
+<pin name="NC@1" x="-35.56" y="-5.08" length="short" direction="nc"/>
 <pin name="RB4/AN9/CTPLS/KBI0" x="-35.56" y="-7.62" length="short"/>
 <pin name="RB5/T0CKI/T3CKI/CCP5/KBI1" x="-35.56" y="-10.16" length="short"/>
 <pin name="RB6/PGC/KBI2" x="-35.56" y="-12.7" length="short"/>
@@ -1974,8 +1974,8 @@ package type TQ</description>
 <pin name="OSC1/CLKI/RA7" x="35.56" y="-10.16" length="short" direction="in" rot="R180"/>
 <pin name="OSC2/CLKO/RA6" x="35.56" y="-7.62" length="short" direction="out" rot="R180"/>
 <pin name="RC0/SOSCO/SCLKI" x="35.56" y="-5.08" length="short" rot="R180"/>
-<pin name="NC@2" x="35.56" y="-2.54" length="short" direction="in" rot="R180"/>
-<pin name="NC@3" x="35.56" y="0" length="short" direction="in" rot="R180"/>
+<pin name="NC@2" x="35.56" y="-2.54" length="short" direction="nc" rot="R180"/>
+<pin name="NC@3" x="35.56" y="0" length="short" direction="nc" rot="R180"/>
 <pin name="RC1/SOSCI" x="35.56" y="2.54" length="short" rot="R180"/>
 <pin name="RC2/T1G/CCP2" x="35.56" y="5.08" length="short" rot="R180"/>
 <pin name="RC3/REFO/SCL/SCK" x="35.56" y="7.62" length="short" rot="R180"/>
@@ -2100,7 +2100,7 @@ Farnell order nr: 224959</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="C0805" package="C0805@1">
+<device name="C0805" package="C0805">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -11095,6 +11095,11 @@ Copyright: Würth Elektronik</description>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0603"/>
 <part name="SW1" library="Eagle_Wuerth_Elektronik_Switch_Power_Elements" deviceset="431181015816" device=""/>
 <part name="V6" library="supply2" deviceset="GND" device=""/>
+<part name="C5" library="rcl" deviceset="C-EU" device="C0805" value="100n">
+<attribute name="MF" value="AVX"/>
+<attribute name="MPN" value="08055C104JAT2A"/>
+<attribute name="OC_FARNELL" value="1740673"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -11300,6 +11305,12 @@ Copyright: Würth Elektronik</description>
 <instance part="R5" gate="G$1" x="111.76" y="66.04" rot="R90"/>
 <instance part="SW1" gate="G$1" x="226.06" y="66.04"/>
 <instance part="V6" gate="GND" x="213.36" y="71.12"/>
+<instance part="C5" gate="G$1" x="248.92" y="101.6" smashed="yes">
+<attribute name="NAME" x="246.38" y="101.6" size="1.778" layer="95"/>
+<attribute name="OC_FARNELL" x="248.92" y="101.6" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MF" x="248.92" y="101.6" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="248.92" y="101.6" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -11313,6 +11324,8 @@ Copyright: Würth Elektronik</description>
 <pinref part="V12" gate="GND" pin="GND"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="C4" gate="G$1" pin="2"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="243.84" y1="96.52" x2="248.92" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="VSS@1"/>
@@ -11506,6 +11519,8 @@ Copyright: Würth Elektronik</description>
 <pinref part="C3" gate="G$1" pin="1"/>
 <pinref part="C4" gate="G$1" pin="1"/>
 <pinref part="V15" gate="+3V3" pin="+3V3"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="243.84" y1="104.14" x2="248.92" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="114.3" y1="92.71" x2="104.14" y2="92.71" width="0.1524" layer="91"/>
@@ -11902,6 +11917,7 @@ Copyright: Würth Elektronik</description>
 <segment>
 <pinref part="HBEAT" gate="G$1" pin="C"/>
 <wire x1="93.98" y1="111.76" x2="101.6" y2="111.76" width="0.1524" layer="91"/>
+<label x="101.6" y="111.76" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="RD2/C2INA/PSP2"/>
@@ -11916,7 +11932,7 @@ Copyright: Würth Elektronik</description>
 <pinref part="RN3" gate="A" pin="1"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="VDDCAP" class="0">
 <segment>
 <pinref part="IC2" gate="G$1" pin="VDDCORE/VCAP"/>
 <pinref part="C6" gate="G$1" pin="1"/>
@@ -11977,6 +11993,33 @@ Copyright: Würth Elektronik</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,38.1,132.08,X1,CENTER,VSUPPLY,,,"/>
+<approved hash="104,1,38.1,127,X1,SHIELD,GND,,,"/>
+<approved hash="104,1,50.8,78.74,X2,3V3,+3V3,,,"/>
+<approved hash="104,1,27.94,33.02,X2G$2,TAB,GND,,,"/>
+<approved hash="104,1,33.02,33.02,X2G$2,TAB,GND,,,"/>
+<approved hash="104,1,139.7,152.4,IC2,VSS,GND,,,"/>
+<approved hash="104,1,139.7,149.86,IC2,VDD,+3V3,,,"/>
+<approved hash="104,1,210.82,124.46,IC2,VDD,+3V3,,,"/>
+<approved hash="104,1,210.82,127,IC2,VSS,GND,,,"/>
+<approved hash="104,1,114.3,92.71,OSC1,VCC,+3V3,,,"/>
+<approved hash="104,1,185.42,101.6,IC3,VCC,+3V3,,,"/>
+<approved hash="115,1,130.071,89.431,FRAME1,,,,,"/>
+<approved hash="115,1,27.7029,147.189,SUP,,,,,"/>
+<approved hash="115,1,57.15,101.922,PWR,,,,,"/>
+<approved hash="115,1,57.15,10.4817,LINK,,,,,"/>
+<approved hash="115,1,94.3017,115.57,HBEAT,,,,,"/>
+<approved hash="115,1,103.857,160.151,UART2,,,,,"/>
+<approved hash="115,1,163.999,40.7712,ANALOG,,,,,"/>
+<approved hash="115,1,121.92,46.7148,R2,,,,,"/>
+<approved hash="115,1,115.845,66.04,R3,,,,,"/>
+<approved hash="115,1,113.305,66.04,R4,,,,,"/>
+<approved hash="115,1,110.765,66.04,R5,,,,,"/>
+<approved hash="113,1,45.72,10.1473,MPN,RN3,,,,"/>
+<approved hash="113,1,45.72,10.1473,MF,RN3,,,,"/>
+<approved hash="113,1,45.72,10.1473,OC_FARNELL,RN3,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
