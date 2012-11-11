@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -141,9 +141,9 @@ DIN A4, landscape with location and doc. field</description>
 <library name="netnode">
 <packages>
 <package name="TSR1-SIPS">
-<pad name="1" x="0" y="0" drill="0.8" shape="square"/>
-<pad name="2" x="2.54" y="0" drill="0.8"/>
-<pad name="3" x="5.08" y="0" drill="0.8"/>
+<pad name="1" x="0" y="0" drill="0.8" diameter="1.6764" shape="square"/>
+<pad name="2" x="2.54" y="0" drill="0.8" diameter="1.6764"/>
+<pad name="3" x="5.08" y="0" drill="0.8" diameter="1.6764"/>
 <wire x1="-3.3" y1="-2" x2="-3.3" y2="5.6" width="0.127" layer="21"/>
 <wire x1="-3.3" y1="5.6" x2="8.4" y2="5.6" width="0.127" layer="21"/>
 <wire x1="8.4" y1="5.6" x2="8.4" y2="-2" width="0.127" layer="21"/>
@@ -153,21 +153,24 @@ DIN A4, landscape with location and doc. field</description>
 <text x="2" y="6" size="1.27" layer="25" font="vector">&gt;NAME</text>
 </package>
 <package name="DC10R">
-<wire x1="0" y1="0" x2="14" y2="0" width="0.127" layer="21"/>
+<wire x1="3.81" y1="0" x2="14" y2="0" width="0.127" layer="21"/>
 <wire x1="14" y1="0" x2="14" y2="9" width="0.127" layer="21"/>
-<wire x1="14" y1="9" x2="0" y2="9" width="0.127" layer="21"/>
-<wire x1="0" y1="9" x2="0" y2="0" width="0.127" layer="21"/>
-<pad name="2" x="10.6" y="-0.29" drill="2.7"/>
-<pad name="1" x="13.6" y="4.5" drill="2.7"/>
-<pad name="3" x="7.5" y="4.5" drill="2.7"/>
+<wire x1="14" y1="9" x2="3.81" y2="9" width="0.127" layer="21"/>
+<wire x1="3.81" y1="9" x2="3.81" y2="0" width="0.127" layer="21"/>
+<pad name="2" x="10.6" y="-0.29" drill="2.7" diameter="3.81"/>
+<pad name="1" x="13.6" y="4.5" drill="2.7" diameter="3.81"/>
+<pad name="3" x="7.5" y="4.5" drill="2.7" diameter="3.81"/>
 <text x="1" y="-2" size="1.27" layer="25">&gt;NAME</text>
 <text x="1" y="-4" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="3.81" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
+<wire x1="0" y1="0" x2="0" y2="9.0007875" width="0.127" layer="51"/>
+<wire x1="0" y1="9.0007875" x2="3.81" y2="9.0007875" width="0.127" layer="51"/>
 </package>
 <package name="XPORT">
-<wire x1="0" y1="0" x2="33.9" y2="0" width="0.127" layer="21"/>
+<wire x1="3.81" y1="0" x2="33.9" y2="0" width="0.127" layer="21"/>
 <wire x1="33.9" y1="0" x2="33.9" y2="16.05" width="0.127" layer="21"/>
-<wire x1="0" y1="0" x2="0" y2="16.05" width="0.127" layer="21"/>
-<wire x1="0" y1="16.05" x2="33.9" y2="16.05" width="0.127" layer="21"/>
+<wire x1="3.81" y1="0" x2="3.81" y2="16.05" width="0.127" layer="21"/>
+<wire x1="3.81" y1="16.05" x2="33.9" y2="16.05" width="0.127" layer="21"/>
 <pad name="TAB1" x="22.75" y="0" drill="2.1"/>
 <pad name="TAB2" x="22.75" y="16.05" drill="2.1"/>
 <pad name="1" x="19.74" y="3.58" drill="0.9"/>
@@ -178,9 +181,12 @@ DIN A4, landscape with location and doc. field</description>
 <pad name="6" x="17.2" y="9.93" drill="0.9"/>
 <pad name="7" x="19.74" y="11.2" drill="0.9"/>
 <pad name="8" x="17.2" y="12.47" drill="0.9"/>
-<rectangle x1="0" y1="0" x2="34.29" y2="15.875" layer="39"/>
+<rectangle x1="3.81" y1="0" x2="34.036" y2="15.875" layer="39"/>
 <hole x="10.85" y="1.88" drill="3.3"/>
 <hole x="10.85" y="14.18" drill="3.3"/>
+<wire x1="3.81" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
+<wire x1="0" y1="0" x2="-0.0127" y2="16.0655" width="0.127" layer="51"/>
+<wire x1="-0.0127" y1="16.0655" x2="3.7973" y2="16.0655" width="0.127" layer="51"/>
 </package>
 <package name="C0402">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
@@ -10602,13 +10608,11 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="2.9" y1="3.9" x2="2.9" y2="-3.9" width="0.1998" layer="39"/>
 <wire x1="2.9" y1="-3.9" x2="-2.9" y2="-3.9" width="0.1998" layer="39"/>
 <wire x1="-2.9" y1="-3.9" x2="-2.9" y2="3.9" width="0.1998" layer="39"/>
-<wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
-<wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
-<wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="51"/>
-<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
-<wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="2.527" y1="1.9" x2="2.527" y2="-1.9" width="0.2032" layer="21"/>
+<wire x1="2.527" y1="-1.9" x2="-2.527" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-2.527" y1="-1.9" x2="-2.527" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="-2.527" y1="1.9" x2="2.527" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="2.527" y1="-1.4" x2="-2.527" y2="-1.4" width="0.2032" layer="51"/>
 <smd name="2" x="-0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="7" x="-0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="1" x="-1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
@@ -10630,6 +10634,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <rectangle x1="-0.8801" y1="2" x2="-0.3899" y2="3.1001" layer="51"/>
 <rectangle x1="-2.1501" y1="2" x2="-1.6599" y2="3.1001" layer="51"/>
 <rectangle x1="-1" y1="-1" x2="1" y2="1" layer="35"/>
+<circle x="-2.413" y="-0.762" radius="0.359209375" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
