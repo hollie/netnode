@@ -1,0 +1,22 @@
+[Eagle]
+Version="06 03 00"
+Platform="Mac OS X"
+Serial="700BBC675F-LS-WLM-1CS"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="/Users/lieven/projects/likatronix/adafruit/adafruit.lbr"
+UsedLibrary="/Users/lieven/projects/likatronix/libs/wuerth/Wuerth_Elektronik_eiCan_01_Pin__Socked_Headers_v1_3.lbr"
+UsedLibrary="/Users/lieven/projects/likatronix/libs/wuerth/Wuerth_Elektronik_eiCan_14_Terminal_Blocks_WR-TBL_2_0.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="4 22 759 781"
+State=2
+Number=0
+
+[Desktop]
+Screen="1920 1080"
+Window="Win_1"
