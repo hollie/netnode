@@ -785,12 +785,13 @@ enum XPL_CMD_MSG_TYPE_RSP xpl_handle_message_part(void) {
                     lpcount++;
                 }
 
+#ifdef PWM_ENABLED
                 if (xpl_pwm_value == 255) {
                     SetDCPWM1(0x3FF);
                 } else {
                     SetDCPWM1(((short) xpl_pwm_value) << 2);
                 }
-
+#endif
                 xpl_msg_state = WAITING_CMND;
                 return PWM_CURRENT_MSG_TYPE;
             } else {

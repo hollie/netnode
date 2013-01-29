@@ -21,7 +21,7 @@
 
 // Uncomment the next line to enable PWM output 
 // on PORTC.2
-#define PWM_ENABLED
+//#define PWM_ENABLED
 
 // offset of INSTANCE_ID within target=VENDOR-DEVICEID.
 #define XPL_TARGET_VENDOR_DEVICEID_INSTANCE_ID_OFFSET 22
