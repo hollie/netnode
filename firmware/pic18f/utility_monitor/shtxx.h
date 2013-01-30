@@ -11,10 +11,21 @@ Ported to C18 compiler by Roeland Vandebriel and Lieven Hollevoet
 #define _SHTxx_H_
 
 // Note: the data pin needs an external 10k pullup!
+#ifdef __18F45K80_H
+
+#define SHT_DATA_TRIS  TRISAbits.TRISA3
+#define SHT_DATA       PORTAbits.RA3
+#define SHT_CLK_TRIS   TRISAbits.TRISA2
+#define SHT_CLK        PORTAbits.RA2
+
+#else
+
 #define SHT_DATA_TRIS  TRISAbits.RA3
 #define SHT_DATA       PORTAbits.RA3
 #define SHT_CLK_TRIS   TRISAbits.RA2
 #define SHT_CLK        PORTAbits.RA2
+
+#endif
 
 #define DATA(value) (SHT_DATA_TRIS = (value)? 1 : 0); (SHT_DATA = value);
 #define SCK(b)      (SHT_CLK = b)
