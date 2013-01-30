@@ -1,0 +1,13 @@
+# Writing all output to: \\VBOXSVR\likatronix\netnode\hardware\ioboard v1\eagle\ioboard v1.log
+bus diagonal
+fanout 5 (direction out)
+route 20
+clean 5
+route 20 16
+clean 5
+filter 5
+recorner diagonal
+status_file
+
+[ELECTRA         ] 
+v2.9.5 exits with code: 0, errors: 0, warnings: 0
