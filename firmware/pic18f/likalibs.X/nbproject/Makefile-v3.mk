@@ -13,8 +13,8 @@ ifeq "${IGNORE_LOCAL}" "TRUE"
 else
 include Makefile
 # Include makefile containing local settings
-ifeq "$(wildcard nbproject/Makefile-local-default.mk)" "nbproject/Makefile-local-default.mk"
-include nbproject/Makefile-local-default.mk
+ifeq "$(wildcard nbproject/Makefile-local-v3.mk)" "nbproject/Makefile-local-v3.mk"
+include nbproject/Makefile-local-v3.mk
 endif
 endif
 
@@ -25,7 +25,7 @@ MV=mv
 CP=cp 
 
 # Macros
-CND_CONF=default
+CND_CONF=v3
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=lib
@@ -66,11 +66,11 @@ LDLIBSOPTIONS=
 FIXDEPS=fixDeps
 
 .build-conf:  ${BUILD_SUBPROJECTS}
-	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/likalibs.X.${OUTPUT_SUFFIX}
+	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-v3.mk dist/${CND_CONF}/${IMAGE_TYPE}/likalibs.X.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=18F2580
-MP_PROCESSOR_OPTION_LD=18f2580
-MP_LINKER_DEBUG_OPTION= -u_DEBUGCODESTART=0x7dc0 -u_DEBUGCODELEN=0x240 -u_DEBUGDATASTART=0x5f4 -u_DEBUGDATALEN=0xb
+MP_PROCESSOR_OPTION=18F45K80
+MP_PROCESSOR_OPTION_LD=18f45k80
+MP_LINKER_DEBUG_OPTION=
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -83,35 +83,35 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/cosm_socket.o: cosm_socket.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/cosm_socket.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/cosm_socket.o   cosm_socket.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/cosm_socket.o   cosm_socket.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/cosm_socket.o 
 	@${FIXDEPS} "${OBJECTDIR}/cosm_socket.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/clock.o: clock.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/clock.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/clock.o   clock.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/clock.o   clock.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/clock.o 
 	@${FIXDEPS} "${OBJECTDIR}/clock.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/eeprom.o: eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/eeprom.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/eeprom.o   eeprom.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/eeprom.o   eeprom.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/eeprom.o 
 	@${FIXDEPS} "${OBJECTDIR}/eeprom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/oo.o: oo.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/oo.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/oo.o   oo.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/oo.o   oo.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/oo.o 
 	@${FIXDEPS} "${OBJECTDIR}/oo.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/shtxx.o: shtxx.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/shtxx.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/shtxx.o   shtxx.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/shtxx.o   shtxx.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/shtxx.o 
 	@${FIXDEPS} "${OBJECTDIR}/shtxx.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -119,35 +119,35 @@ else
 ${OBJECTDIR}/cosm_socket.o: cosm_socket.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/cosm_socket.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/cosm_socket.o   cosm_socket.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/cosm_socket.o   cosm_socket.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/cosm_socket.o 
 	@${FIXDEPS} "${OBJECTDIR}/cosm_socket.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/clock.o: clock.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/clock.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/clock.o   clock.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/clock.o   clock.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/clock.o 
 	@${FIXDEPS} "${OBJECTDIR}/clock.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/eeprom.o: eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/eeprom.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/eeprom.o   eeprom.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/eeprom.o   eeprom.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/eeprom.o 
 	@${FIXDEPS} "${OBJECTDIR}/eeprom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/oo.o: oo.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/oo.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/oo.o   oo.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/oo.o   oo.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/oo.o 
 	@${FIXDEPS} "${OBJECTDIR}/oo.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/shtxx.o: shtxx.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/shtxx.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ml -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/shtxx.o   shtxx.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION)  --extended -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/shtxx.o   shtxx.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/shtxx.o 
 	@${FIXDEPS} "${OBJECTDIR}/shtxx.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -175,8 +175,8 @@ endif
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/default
-	${RM} -r dist/default
+	${RM} -r build/v3
+	${RM} -r dist/v3
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl

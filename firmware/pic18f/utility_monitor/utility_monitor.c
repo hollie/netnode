@@ -13,7 +13,7 @@
  * target device   : PIC18F2520/PIC18F2580
  * clockfreq       : 32 MHz (internal oscillator + PLL)
  * target hardware : NetNode
- * UART speed      : 38400 bps
+ * UART speed      : 38400 bps/56k7bps
  * mpasmwin.exe    : v5.34
  * mplink.exe      : v4.34
  * mcc18.exe       : v3.34
@@ -61,6 +61,8 @@ void main() {
 
     // Hardware initialisation
     init();
+
+    //printf("Hello world");
 
     // Init the xPL library
     xpl_init();

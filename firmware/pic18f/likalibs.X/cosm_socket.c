@@ -135,7 +135,7 @@ void cosm_process_uart(char data) {
         case 'I': // When the next character is an 'I', it is an active incoming connection. Handle it...
             if (uart_state == CONNECTED && uart_length == 2) {
                 uart_state = INCOMING;
-                display_application_menu(0);
+                //display_application_menu(0);
             }
             return;
         //case '*': // End of the string that needs to be stored
