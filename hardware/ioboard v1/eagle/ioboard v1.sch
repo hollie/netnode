@@ -9032,65 +9032,219 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.4" drill="0.35">
+<clearance class="0" value="0.2"/>
+</class>
+<class number="1" name="power" width="1" drill="0.35">
+<clearance class="1" value="0.2"/>
+</class>
+<class number="2" name="low_impedance" width="1.5" drill="0.35">
+<clearance class="2" value="0.2"/>
 </class>
 </classes>
 <parts>
 <part name="FRAME1" library="frames" deviceset="A4L-LOC" device=""/>
-<part name="IC1" library="adafruit" deviceset="MCP23017" device="SO"/>
-<part name="K1" library="Wuerth_Elektronik_eiCan_01_Pin__Socked_Headers_v1_3" deviceset="61300611021" device=""/>
-<part name="K2" library="Wuerth_Elektronik_eiCan_01_Pin__Socked_Headers_v1_3" deviceset="613006143121" device=""/>
-<part name="INPUT" library="Wuerth_Elektronik_eiCan_14_Terminal_Blocks_WR-TBL_2_0" deviceset="691402910008" device=""/>
-<part name="OUTPUT" library="Wuerth_Elektronik_eiCan_14_Terminal_Blocks_WR-TBL_2_0" deviceset="691402910008" device=""/>
-<part name="IC2" library="ic" deviceset="ULN2803A" device=""/>
-<part name="IC3" library="ic" deviceset="ACPL-244" device=""/>
-<part name="IC4" library="ic" deviceset="ACPL-244" device=""/>
-<part name="RN1" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device=""/>
-<part name="RN2" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device=""/>
+<part name="IC1" library="adafruit" deviceset="MCP23017" device="SO">
+<attribute name="MF" value="MICROCHIP"/>
+<attribute name="MPN" value="MCP23017-E/SO"/>
+<attribute name="OC_FARNELL" value="1332087"/>
+</part>
+<part name="K1" library="Wuerth_Elektronik_eiCan_01_Pin__Socked_Headers_v1_3" deviceset="61300611021" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="K2" library="Wuerth_Elektronik_eiCan_01_Pin__Socked_Headers_v1_3" deviceset="613006143121" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="INPUT" library="Wuerth_Elektronik_eiCan_14_Terminal_Blocks_WR-TBL_2_0" deviceset="691402910008" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="OUTPUT" library="Wuerth_Elektronik_eiCan_14_Terminal_Blocks_WR-TBL_2_0" deviceset="691402910008" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="IC2" library="ic" deviceset="ULN2803A" device="">
+<attribute name="MF" value="TOSHIBA"/>
+<attribute name="MPN" value="ULN2803APG"/>
+</part>
+<part name="IC3" library="ic" deviceset="ACPL-244" device="">
+<attribute name="MF" value="AVAGO TECHNOLOGIES"/>
+<attribute name="MPN" value="ACPL-244-500E"/>
+<attribute name="OC_FARNELL" value="1634755"/>
+</part>
+<part name="IC4" library="ic" deviceset="ACPL-244" device="">
+<attribute name="MF" value="AVAGO TECHNOLOGIES"/>
+<attribute name="MPN" value="ACPL-244-500E"/>
+<attribute name="OC_FARNELL" value="1634755"/>
+</part>
+<part name="RN1" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="RN2" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
 <part name="SUPPLY1" library="supply2" deviceset="GND" device=""/>
-<part name="RN3" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device=""/>
-<part name="LED1" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED2" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED3" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED4" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="RN4" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device=""/>
-<part name="LED5" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED6" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED7" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED8" library="led" deviceset="LED" device="CHIPLED_1206"/>
+<part name="RN3" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED1" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED2" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED3" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED4" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="RN4" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED5" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED6" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED7" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED8" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
 <part name="SUPPLY3" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY2" library="supply2" deviceset="VDD" device=""/>
-<part name="RN5" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device=""/>
-<part name="LED9" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED10" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED11" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED12" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="RN6" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device=""/>
-<part name="LED13" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED14" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED15" library="led" deviceset="LED" device="CHIPLED_1206"/>
-<part name="LED16" library="led" deviceset="LED" device="CHIPLED_1206"/>
+<part name="RN5" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED9" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED10" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED11" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED12" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="RN6" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED13" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED14" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED15" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="LED16" library="led" deviceset="LED" device="CHIPLED_1206">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
 <part name="SUPPLY4" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY6" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY7" library="supply2" deviceset="GND" device=""/>
-<part name="SW1" library="Eagle_Wuerth_Elektronik_Switch_Power_Elements" deviceset="418127270903" device=""/>
+<part name="SW1" library="Eagle_Wuerth_Elektronik_Switch_Power_Elements" deviceset="418127270903" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
 <part name="SUPPLY8" library="supply2" deviceset="GND" device=""/>
-<part name="RN7" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device=""/>
+<part name="RN7" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
 <part name="SUPPLY9" library="supply2" deviceset="VDD" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0805">
+<attribute name="MF" value="AVX"/>
+<attribute name="MPN" value="08051A100JAT2A"/>
+<attribute name="OC_FARNELL" value="499158"/>
+</part>
 <part name="SUPPLY10" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY11" library="supply2" deviceset="GND" device=""/>
-<part name="C2" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C2" library="rcl" deviceset="C-EU" device="C0805">
+<attribute name="MF" value="AVX"/>
+<attribute name="MPN" value="08051A100JAT2A"/>
+<attribute name="OC_FARNELL" value="499158"/>
+</part>
 <part name="SUPPLY12" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY13" library="supply2" deviceset="GND" device=""/>
-<part name="SJ1" library="jumper" deviceset="SJ" device=""/>
+<part name="SJ1" library="jumper" deviceset="SJ" device="">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
 <part name="AGND1" library="supply1" deviceset="AGND" device=""/>
 <part name="P+1" library="supply1" deviceset="V+" device=""/>
 <part name="AGND2" library="supply1" deviceset="AGND" device=""/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="R0805"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="R0805">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
 <part name="SUPPLY14" library="supply2" deviceset="VDD" device=""/>
-<part name="K4" library="Wuerth_Elektronik_eiCan_14_Terminal_Blocks_WR-TBL_2_0" deviceset="691214110003" device=""/>
+<part name="K4" library="Wuerth_Elektronik_eiCan_14_Terminal_Blocks_WR-TBL_2_0" deviceset="691214110003" device="">
+<attribute name="MF" value="WURTH ELEKTRONIK"/>
+<attribute name="MPN" value="691214110003"/>
+<attribute name="OC_FARNELL" value="1841251"/>
+</part>
 <part name="SUPPLY15" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY16" library="supply2" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="V+" device=""/>
@@ -9101,82 +9255,227 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
-<instance part="IC1" gate="G$1" x="124.46" y="99.06"/>
-<instance part="K1" gate="G$1" x="27.94" y="157.48" rot="R180"/>
-<instance part="K2" gate="G$1" x="63.5" y="157.48" rot="MR180"/>
-<instance part="INPUT" gate="G$1" x="20.32" y="78.74"/>
-<instance part="OUTPUT" gate="G$1" x="198.12" y="40.64"/>
-<instance part="IC2" gate="G$1" x="205.74" y="86.36"/>
-<instance part="IC3" gate="G$1" x="68.58" y="111.76"/>
-<instance part="IC4" gate="G$1" x="68.58" y="63.5"/>
-<instance part="RN1" gate="B" x="43.18" y="109.22"/>
+<instance part="IC1" gate="G$1" x="124.46" y="99.06">
+<attribute name="OC_FARNELL" x="124.46" y="99.06" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="124.46" y="99.06" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="124.46" y="99.06" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="K1" gate="G$1" x="27.94" y="157.48" rot="R180">
+<attribute name="OC_FARNELL" x="27.94" y="157.48" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="27.94" y="157.48" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="27.94" y="157.48" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="K2" gate="G$1" x="63.5" y="157.48" rot="MR180">
+<attribute name="OC_FARNELL" x="63.5" y="157.48" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="63.5" y="157.48" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="63.5" y="157.48" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="INPUT" gate="G$1" x="20.32" y="78.74">
+<attribute name="OC_FARNELL" x="20.32" y="78.74" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="20.32" y="78.74" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="20.32" y="78.74" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="OUTPUT" gate="G$1" x="198.12" y="40.64">
+<attribute name="OC_FARNELL" x="198.12" y="40.64" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="198.12" y="40.64" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="198.12" y="40.64" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="IC2" gate="G$1" x="205.74" y="86.36">
+<attribute name="MF" x="205.74" y="86.36" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="205.74" y="86.36" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="IC3" gate="G$1" x="68.58" y="111.76">
+<attribute name="MF" x="68.58" y="111.76" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="68.58" y="111.76" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="IC4" gate="G$1" x="68.58" y="63.5">
+<attribute name="MF" x="68.58" y="63.5" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="68.58" y="63.5" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="RN1" gate="B" x="43.18" y="109.22">
+<attribute name="OC_FARNELL" x="43.18" y="109.22" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="43.18" y="109.22" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="43.18" y="109.22" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="RN1" gate="C" x="43.18" y="99.06"/>
 <instance part="RN1" gate="D" x="43.18" y="88.9"/>
 <instance part="RN1" gate="A" x="43.18" y="119.38"/>
-<instance part="RN2" gate="B" x="43.18" y="60.96"/>
+<instance part="RN2" gate="B" x="43.18" y="60.96">
+<attribute name="OC_FARNELL" x="43.18" y="60.96" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="43.18" y="60.96" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="43.18" y="60.96" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="RN2" gate="C" x="43.18" y="50.8"/>
 <instance part="RN2" gate="D" x="43.18" y="40.64"/>
 <instance part="RN2" gate="A" x="43.18" y="71.12"/>
 <instance part="SUPPLY1" gate="GND" x="83.82" y="25.4"/>
-<instance part="RN3" gate="B" x="93.98" y="142.24" rot="R90"/>
+<instance part="RN3" gate="B" x="93.98" y="142.24" rot="R90">
+<attribute name="OC_FARNELL" x="93.98" y="142.24" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="93.98" y="142.24" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="93.98" y="142.24" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="RN3" gate="C" x="99.06" y="142.24" rot="R90"/>
 <instance part="RN3" gate="D" x="104.14" y="142.24" rot="R90"/>
 <instance part="RN3" gate="A" x="88.9" y="142.24" rot="R90"/>
-<instance part="LED1" gate="G$1" x="88.9" y="154.94"/>
-<instance part="LED2" gate="G$1" x="93.98" y="160.02"/>
-<instance part="LED3" gate="G$1" x="99.06" y="154.94"/>
-<instance part="LED4" gate="G$1" x="104.14" y="160.02"/>
-<instance part="RN4" gate="B" x="114.3" y="142.24" rot="R90"/>
+<instance part="LED1" gate="G$1" x="88.9" y="154.94">
+<attribute name="OC_FARNELL" x="88.9" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="88.9" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="88.9" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED2" gate="G$1" x="93.98" y="160.02">
+<attribute name="OC_FARNELL" x="93.98" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="93.98" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="93.98" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED3" gate="G$1" x="99.06" y="154.94">
+<attribute name="OC_FARNELL" x="99.06" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="99.06" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="99.06" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED4" gate="G$1" x="104.14" y="160.02">
+<attribute name="OC_FARNELL" x="104.14" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="104.14" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="104.14" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="RN4" gate="B" x="114.3" y="142.24" rot="R90">
+<attribute name="OC_FARNELL" x="114.3" y="142.24" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="114.3" y="142.24" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="114.3" y="142.24" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="RN4" gate="C" x="119.38" y="142.24" rot="R90"/>
 <instance part="RN4" gate="D" x="124.46" y="142.24" rot="R90"/>
 <instance part="RN4" gate="A" x="109.22" y="142.24" rot="R90"/>
-<instance part="LED5" gate="G$1" x="109.22" y="154.94"/>
-<instance part="LED6" gate="G$1" x="114.3" y="160.02"/>
-<instance part="LED7" gate="G$1" x="119.38" y="154.94"/>
-<instance part="LED8" gate="G$1" x="124.46" y="160.02"/>
+<instance part="LED5" gate="G$1" x="109.22" y="154.94">
+<attribute name="OC_FARNELL" x="109.22" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="109.22" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="109.22" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED6" gate="G$1" x="114.3" y="160.02">
+<attribute name="OC_FARNELL" x="114.3" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="114.3" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="114.3" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED7" gate="G$1" x="119.38" y="154.94">
+<attribute name="OC_FARNELL" x="119.38" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="119.38" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="119.38" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED8" gate="G$1" x="124.46" y="160.02">
+<attribute name="OC_FARNELL" x="124.46" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="124.46" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="124.46" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SUPPLY3" gate="G$1" x="109.22" y="124.46"/>
 <instance part="SUPPLY2" gate="G$1" x="129.54" y="165.1" rot="R270"/>
-<instance part="RN5" gate="B" x="162.56" y="142.24" rot="R90"/>
+<instance part="RN5" gate="B" x="162.56" y="142.24" rot="R90">
+<attribute name="OC_FARNELL" x="162.56" y="142.24" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="162.56" y="142.24" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="162.56" y="142.24" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="RN5" gate="C" x="167.64" y="142.24" rot="R90"/>
 <instance part="RN5" gate="D" x="172.72" y="142.24" rot="R90"/>
 <instance part="RN5" gate="A" x="157.48" y="142.24" rot="R90"/>
-<instance part="LED9" gate="G$1" x="157.48" y="154.94"/>
-<instance part="LED10" gate="G$1" x="162.56" y="160.02"/>
-<instance part="LED11" gate="G$1" x="167.64" y="154.94"/>
-<instance part="LED12" gate="G$1" x="172.72" y="160.02"/>
-<instance part="RN6" gate="B" x="182.88" y="142.24" rot="R90"/>
+<instance part="LED9" gate="G$1" x="157.48" y="154.94">
+<attribute name="OC_FARNELL" x="157.48" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="157.48" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="157.48" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED10" gate="G$1" x="162.56" y="160.02">
+<attribute name="OC_FARNELL" x="162.56" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="162.56" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="162.56" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED11" gate="G$1" x="167.64" y="154.94">
+<attribute name="OC_FARNELL" x="167.64" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="167.64" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="167.64" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED12" gate="G$1" x="172.72" y="160.02">
+<attribute name="OC_FARNELL" x="172.72" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="172.72" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="172.72" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="RN6" gate="B" x="182.88" y="142.24" rot="R90">
+<attribute name="OC_FARNELL" x="182.88" y="142.24" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="182.88" y="142.24" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="182.88" y="142.24" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="RN6" gate="C" x="187.96" y="142.24" rot="R90"/>
 <instance part="RN6" gate="D" x="193.04" y="142.24" rot="R90"/>
 <instance part="RN6" gate="A" x="177.8" y="142.24" rot="R90"/>
-<instance part="LED13" gate="G$1" x="177.8" y="154.94"/>
-<instance part="LED14" gate="G$1" x="182.88" y="160.02"/>
-<instance part="LED15" gate="G$1" x="187.96" y="154.94"/>
-<instance part="LED16" gate="G$1" x="193.04" y="160.02"/>
+<instance part="LED13" gate="G$1" x="177.8" y="154.94">
+<attribute name="OC_FARNELL" x="177.8" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="177.8" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="177.8" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED14" gate="G$1" x="182.88" y="160.02">
+<attribute name="OC_FARNELL" x="182.88" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="182.88" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="182.88" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED15" gate="G$1" x="187.96" y="154.94">
+<attribute name="OC_FARNELL" x="187.96" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="187.96" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="187.96" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED16" gate="G$1" x="193.04" y="160.02">
+<attribute name="OC_FARNELL" x="193.04" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="193.04" y="160.02" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="193.04" y="160.02" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SUPPLY4" gate="G$1" x="198.12" y="165.1" rot="R270"/>
 <instance part="SUPPLY5" gate="GND" x="43.18" y="144.78"/>
 <instance part="SUPPLY6" gate="G$1" x="48.26" y="167.64"/>
 <instance part="SUPPLY7" gate="GND" x="109.22" y="71.12"/>
-<instance part="SW1" gate="G$1" x="113.03" y="27.94" rot="R270"/>
+<instance part="SW1" gate="G$1" x="113.03" y="27.94" rot="R270">
+<attribute name="OC_FARNELL" x="113.03" y="27.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="113.03" y="27.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="113.03" y="27.94" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SUPPLY8" gate="GND" x="109.22" y="15.24"/>
-<instance part="RN7" gate="B" x="144.78" y="35.56"/>
+<instance part="RN7" gate="B" x="144.78" y="35.56">
+<attribute name="OC_FARNELL" x="144.78" y="35.56" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="144.78" y="35.56" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="144.78" y="35.56" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="RN7" gate="C" x="144.78" y="43.18"/>
 <instance part="RN7" gate="A" x="144.78" y="27.94"/>
 <instance part="SUPPLY9" gate="G$1" x="154.94" y="45.72"/>
-<instance part="C1" gate="G$1" x="236.22" y="154.94"/>
+<instance part="C1" gate="G$1" x="236.22" y="154.94">
+<attribute name="OC_FARNELL" x="236.22" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="236.22" y="154.94" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="236.22" y="154.94" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SUPPLY10" gate="G$1" x="236.22" y="162.56"/>
 <instance part="SUPPLY11" gate="GND" x="236.22" y="144.78"/>
-<instance part="C2" gate="G$1" x="220.98" y="144.78"/>
+<instance part="C2" gate="G$1" x="220.98" y="144.78">
+<attribute name="OC_FARNELL" x="220.98" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="220.98" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="220.98" y="144.78" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SUPPLY12" gate="G$1" x="220.98" y="162.56"/>
 <instance part="SUPPLY13" gate="GND" x="220.98" y="134.62"/>
 <instance part="RN7" gate="D" x="220.98" y="154.94" rot="R90"/>
-<instance part="SJ1" gate="1" x="66.04" y="167.64" rot="R180"/>
+<instance part="SJ1" gate="1" x="66.04" y="167.64" rot="R180">
+<attribute name="OC_FARNELL" x="66.04" y="167.64" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="66.04" y="167.64" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="66.04" y="167.64" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="AGND1" gate="VR1" x="50.8" y="33.02"/>
-<instance part="P+1" gate="1" x="228.6" y="40.64"/>
-<instance part="AGND2" gate="VR1" x="228.6" y="30.48"/>
-<instance part="R1" gate="G$1" x="53.34" y="144.78" rot="R90"/>
+<instance part="P+1" gate="1" x="236.22" y="43.18"/>
+<instance part="AGND2" gate="VR1" x="236.22" y="33.02"/>
+<instance part="R1" gate="G$1" x="53.34" y="144.78" rot="R90">
+<attribute name="OC_FARNELL" x="53.34" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="53.34" y="144.78" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="53.34" y="144.78" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SUPPLY14" gate="G$1" x="53.34" y="137.16" rot="R180"/>
-<instance part="K4" gate="G$1" x="236.22" y="35.56"/>
-<instance part="SUPPLY15" gate="GND" x="223.52" y="35.56" rot="R270"/>
+<instance part="K4" gate="G$1" x="243.84" y="38.1">
+<attribute name="OC_FARNELL" x="243.84" y="38.1" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="243.84" y="38.1" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="243.84" y="38.1" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="SUPPLY15" gate="GND" x="231.14" y="38.1" rot="R270"/>
 <instance part="SUPPLY16" gate="GND" x="193.04" y="71.12"/>
 <instance part="P+2" gate="1" x="218.44" y="71.12" rot="R180"/>
 </instances>
@@ -9234,7 +9533,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </bus>
 </busses>
 <nets>
-<net name="OUT0" class="0">
+<net name="OUT0" class="2">
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="1"/>
 <wire x1="182.88" y1="50.8" x2="190.5" y2="50.8" width="0.1524" layer="91"/>
@@ -9248,13 +9547,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="16"/>
 <wire x1="213.36" y1="50.8" x2="205.74" y2="50.8" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="OUTPUT" gate="G$1" pin="15"/>
-<wire x1="213.36" y1="48.26" x2="205.74" y2="48.26" width="0.1524" layer="91"/>
+<label x="215.9" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="OUT1" class="0">
+<net name="OUT1" class="2">
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="2"/>
 <wire x1="190.5" y1="48.26" x2="182.88" y2="48.26" width="0.1524" layer="91"/>
@@ -9265,8 +9561,13 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="233.68" y1="81.28" x2="218.44" y2="81.28" width="0.1524" layer="91"/>
 <label x="226.06" y="81.28" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="OUTPUT" gate="G$1" pin="15"/>
+<wire x1="205.74" y1="48.26" x2="213.36" y2="48.26" width="0.1524" layer="91"/>
+<label x="215.9" y="48.26" size="1.778" layer="95"/>
+</segment>
 </net>
-<net name="OUT2" class="0">
+<net name="OUT2" class="2">
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="3"/>
 <wire x1="190.5" y1="45.72" x2="182.88" y2="45.72" width="0.1524" layer="91"/>
@@ -9280,9 +9581,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="14"/>
 <wire x1="213.36" y1="45.72" x2="205.74" y2="45.72" width="0.1524" layer="91"/>
+<label x="215.9" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="OUT3" class="0">
+<net name="OUT3" class="2">
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="4"/>
 <wire x1="190.5" y1="43.18" x2="182.88" y2="43.18" width="0.1524" layer="91"/>
@@ -9296,9 +9598,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="13"/>
 <wire x1="213.36" y1="43.18" x2="205.74" y2="43.18" width="0.1524" layer="91"/>
+<label x="215.9" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="OUT4" class="0">
+<net name="OUT4" class="2">
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="5"/>
 <wire x1="190.5" y1="40.64" x2="182.88" y2="40.64" width="0.1524" layer="91"/>
@@ -9312,9 +9615,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="12"/>
 <wire x1="213.36" y1="40.64" x2="205.74" y2="40.64" width="0.1524" layer="91"/>
+<label x="215.9" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="OUT5" class="0">
+<net name="OUT5" class="2">
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="6"/>
 <wire x1="190.5" y1="38.1" x2="182.88" y2="38.1" width="0.1524" layer="91"/>
@@ -9328,9 +9632,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="11"/>
 <wire x1="213.36" y1="38.1" x2="205.74" y2="38.1" width="0.1524" layer="91"/>
+<label x="215.9" y="38.1" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="OUT6" class="0">
+<net name="OUT6" class="2">
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="7"/>
 <wire x1="190.5" y1="35.56" x2="182.88" y2="35.56" width="0.1524" layer="91"/>
@@ -9344,9 +9649,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="10"/>
 <wire x1="213.36" y1="35.56" x2="205.74" y2="35.56" width="0.1524" layer="91"/>
+<label x="215.9" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="OUT7" class="0">
+<net name="OUT7" class="2">
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="8"/>
 <wire x1="190.5" y1="33.02" x2="182.88" y2="33.02" width="0.1524" layer="91"/>
@@ -9360,6 +9666,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="OUTPUT" gate="G$1" pin="9"/>
 <wire x1="213.36" y1="33.02" x2="205.74" y2="33.02" width="0.1524" layer="91"/>
+<label x="215.9" y="33.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -9418,7 +9725,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="48.26" y1="40.64" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="GND" class="0">
+<net name="GND" class="1">
 <segment>
 <pinref part="SUPPLY1" gate="GND" pin="GND"/>
 <pinref part="IC3" gate="G$1" pin="15"/>
@@ -9493,7 +9800,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="K4" gate="G$1" pin="2"/>
 <pinref part="SUPPLY15" gate="GND" pin="GND"/>
-<wire x1="226.06" y1="35.56" x2="231.14" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="38.1" x2="238.76" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="GND"/>
@@ -9632,7 +9939,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="86.36" y1="99.06" x2="78.74" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="VDD" class="0">
+<net name="VDD" class="1">
 <segment>
 <pinref part="LED1" gate="G$1" pin="A"/>
 <wire x1="88.9" y1="157.48" x2="88.9" y2="165.1" width="0.1524" layer="91"/>
@@ -9995,9 +10302,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="172.72" y="124.46" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="I5"/>
-<wire x1="182.88" y1="86.36" x2="193.04" y2="86.36" width="0.1524" layer="91"/>
-<label x="182.88" y="86.36" size="1.778" layer="95"/>
+<pinref part="IC2" gate="G$1" pin="I8"/>
+<wire x1="182.88" y1="78.74" x2="193.04" y2="78.74" width="0.1524" layer="91"/>
+<label x="182.88" y="78.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUT_L1" class="0">
@@ -10012,9 +10319,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="167.64" y="124.46" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="I6"/>
-<wire x1="182.88" y1="83.82" x2="193.04" y2="83.82" width="0.1524" layer="91"/>
-<label x="182.88" y="83.82" size="1.778" layer="95"/>
+<pinref part="IC2" gate="G$1" pin="I7"/>
+<wire x1="182.88" y1="81.28" x2="193.04" y2="81.28" width="0.1524" layer="91"/>
+<label x="182.88" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUT_L2" class="0">
@@ -10029,9 +10336,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="162.56" y="124.46" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="I7"/>
-<wire x1="182.88" y1="81.28" x2="193.04" y2="81.28" width="0.1524" layer="91"/>
-<label x="182.88" y="81.28" size="1.778" layer="95"/>
+<pinref part="IC2" gate="G$1" pin="I6"/>
+<wire x1="182.88" y1="83.82" x2="193.04" y2="83.82" width="0.1524" layer="91"/>
+<label x="182.88" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUT_L3" class="0">
@@ -10046,9 +10353,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="157.48" y="124.46" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="I8"/>
-<wire x1="182.88" y1="78.74" x2="193.04" y2="78.74" width="0.1524" layer="91"/>
-<label x="182.88" y="78.74" size="1.778" layer="95"/>
+<pinref part="IC2" gate="G$1" pin="I5"/>
+<wire x1="182.88" y1="86.36" x2="193.04" y2="86.36" width="0.1524" layer="91"/>
+<label x="182.88" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUT_L4" class="0">
@@ -10058,14 +10365,14 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="139.7" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="I1"/>
-<wire x1="182.88" y1="96.52" x2="193.04" y2="96.52" width="0.1524" layer="91"/>
-<label x="182.88" y="96.52" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="RN6" gate="D" pin="1"/>
 <wire x1="193.04" y1="121.92" x2="193.04" y2="137.16" width="0.1524" layer="91"/>
 <label x="193.04" y="124.46" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="I4"/>
+<wire x1="182.88" y1="88.9" x2="193.04" y2="88.9" width="0.1524" layer="91"/>
+<label x="182.88" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUT_L5" class="0">
@@ -10075,14 +10382,14 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="139.7" y="83.82" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="I2"/>
-<wire x1="182.88" y1="93.98" x2="193.04" y2="93.98" width="0.1524" layer="91"/>
-<label x="182.88" y="93.98" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="RN6" gate="C" pin="1"/>
 <wire x1="187.96" y1="121.92" x2="187.96" y2="137.16" width="0.1524" layer="91"/>
 <label x="187.96" y="124.46" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="I3"/>
+<wire x1="182.88" y1="91.44" x2="193.04" y2="91.44" width="0.1524" layer="91"/>
+<label x="182.88" y="91.44" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUT_L6" class="0">
@@ -10092,14 +10399,14 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="139.7" y="81.28" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="I3"/>
-<wire x1="182.88" y1="91.44" x2="193.04" y2="91.44" width="0.1524" layer="91"/>
-<label x="182.88" y="91.44" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="RN6" gate="B" pin="1"/>
 <wire x1="182.88" y1="121.92" x2="182.88" y2="137.16" width="0.1524" layer="91"/>
 <label x="182.88" y="124.46" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="I2"/>
+<wire x1="182.88" y1="93.98" x2="193.04" y2="93.98" width="0.1524" layer="91"/>
+<label x="182.88" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUT_L7" class="0">
@@ -10109,14 +10416,14 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="139.7" y="78.74" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="I4"/>
-<wire x1="182.88" y1="88.9" x2="193.04" y2="88.9" width="0.1524" layer="91"/>
-<label x="182.88" y="88.9" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="RN6" gate="A" pin="1"/>
 <wire x1="177.8" y1="121.92" x2="177.8" y2="137.16" width="0.1524" layer="91"/>
 <label x="177.8" y="124.46" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="I1"/>
+<wire x1="182.88" y1="96.52" x2="193.04" y2="96.52" width="0.1524" layer="91"/>
+<label x="182.88" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RST_EXT" class="0">
@@ -10281,14 +10588,14 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="K4" gate="G$1" pin="3"/>
 <pinref part="AGND2" gate="VR1" pin="AGND"/>
-<wire x1="228.6" y1="33.02" x2="231.14" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="236.22" y1="35.56" x2="238.76" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="V+" class="0">
+<net name="V+" class="2">
 <segment>
 <pinref part="K4" gate="G$1" pin="1"/>
 <pinref part="P+1" gate="1" pin="V+"/>
-<wire x1="228.6" y1="38.1" x2="231.14" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="236.22" y1="40.64" x2="238.76" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="CD+"/>
