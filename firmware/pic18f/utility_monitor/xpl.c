@@ -469,9 +469,9 @@ void xpl_init(void) {
         oo_read_temperatures();
     }
 
-    if (sht_init() == 0) {
-        xpl_node_configuration |= SHT_PRESENT;
-    } 
+    //if (sht_init() == 0) {
+    //    xpl_node_configuration |= SHT_PRESENT;
+    //}
 
     xpl_init_instance_id();
 
@@ -579,7 +579,7 @@ void xpl_handler(void) {
                 xpl_addbyte(xpl_fifo_pop_byte());
             }
 
-            // send trig message out once we receice the interrupt
+            // send trig message out once we receive the interrupt
             if (xpl_trig_register != 0 /*&&  == 1 /* last && is for test only */) {
                 if (xpl_trig_register & GAS) {
                     xpl_send_device_current(TRIG, GAS);

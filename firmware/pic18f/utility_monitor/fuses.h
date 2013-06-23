@@ -39,7 +39,7 @@
 #pragma config XINST = ON       // Extended Instruction Set (Enabled)
 
 // CONFIG1H
-#pragma config FOSC = EC2       // Oscillator (EC oscillator (Medium power, 160 kHz - 16 MHz))
+#pragma config FOSC = HS2       // Oscillator (EC oscillator (Medium power, 160 kHz - 16 MHz))
 #pragma config PLLCFG = ON      // PLL x4 Enable bit (Disabled)
 #pragma config FCMEN = ON       // Fail-Safe Clock Monitor (Enabled)
 #pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)

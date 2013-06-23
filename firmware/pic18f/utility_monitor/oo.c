@@ -42,6 +42,7 @@ char        new_conflict;
 char        nr_of_devices = 0;
 oo_tdata    device_table[OO_SUPPORTED_DEVICE_COUNT];
 
+
 #warning "Assuming clock frequency of 32 MHz, adjust the delays accordingly when using another frequency"	
 
 

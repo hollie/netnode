@@ -26,7 +26,7 @@
 #define xport_cts (PORTCbits.RC1)
 
 // Timer values
-#define TMR0_VALUE 0x85EE // For a second interrupt.
+#define TMR0_VALUE 0x0BDB // For a second interrupt runnning @ 64 MHz with 256 prescaler
 #define TMR1_VALUE 0xB1E0 // For 20 ms interrupt.
 
 /* TODO fix the timer values */
@@ -41,6 +41,7 @@
 
 #endif
 
+#define show_hbeat() (blink_hbeat += 5);
 
 // Function declarations
 void init(void);

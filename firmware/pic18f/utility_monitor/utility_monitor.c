@@ -43,6 +43,9 @@ volatile unsigned char debounce_water;
 volatile unsigned char debounce_gas;
 volatile unsigned char debounce_elec;
 
+volatile unsigned char blink_hbeat;
+
+
 //////////////////////////////////////////////////////////////////
 // Main loop
 // Program strategy:
@@ -58,7 +61,7 @@ void main() {
     //eeprom_write(0x00, 'A');
     //eeprom_write(0x01, 'F');
     //eeprom_write(0x02, '\0');
-
+ 
     // Hardware initialisation
     init();
 
@@ -69,7 +72,6 @@ void main() {
 
 
     while (1) {
-
         // Call the xPL message handler
         xpl_handler();
 
@@ -95,6 +97,8 @@ void init(void) {
 #ifdef __18F45K80_H
 
     TRISD = PortDConfig;
+    OSCTUNEbits.PLLEN = 1;
+    
 
     // Serial interface 1 init (57k6 @ 64 MHz, BRGH = 1, => 68)
     Open1USART(USART_ASYNCH_MODE &
@@ -128,18 +132,17 @@ void init(void) {
         stat0 = 1;
     }
 
+    blink_hbeat = 0;
+
+
+#ifdef __18F45K80_H
+
     // Enable the main 1-sec timer that will interrupt every second
     OpenTimer0(TIMER_INT_ON &
             T0_16BIT &
             T0_SOURCE_INT &
             T0_PS_1_256);
 
-    WriteTimer0(TMR0_VALUE); // Load initial timer value
-
-
-    // Prepare the 20 ms debouncing timer for the inputs
-
-#ifdef __18F45K80_H
     // Prepare the 20 ms debouncing timer for the inputs
     OpenTimer1(TIMER_INT_ON &
             T1_16BIT_RW &
@@ -147,12 +150,22 @@ void init(void) {
             T1_PS_1_8 &
             T1_OSC1EN_OFF, 0);
 #else
+    // Enable the main 1-sec timer that will interrupt every second
+    OpenTimer0(TIMER_INT_ON &
+            T0_16BIT &
+            T0_SOURCE_INT &
+            T0_PS_1_256);
+
+    // Prepare the 20 ms debouncing timer for the inputs
     OpenTimer1(TIMER_INT_ON &
             T1_16BIT_RW &
             T1_SOURCE_INT &
             T1_PS_1_8 &
             T1_OSC1EN_OFF);
 #endif
+
+    // Load initial timer values
+    WriteTimer0(TMR0_VALUE);
     WriteTimer1(TMR1_VALUE);
 
     // Enable interrupt on falling edge of RB0/1/2
@@ -163,6 +176,8 @@ void init(void) {
     // Enable pullups on Portb inputs
 #ifdef __18F45K80_H
     INTCON2bits.NOT_RBPU = 0;
+    // Enable digital inputs on AN8..10
+    ANCON1 &= 0xF8;
 
 #else
     INTCON2bits.RBPU = 0; // (bit is active low!)
@@ -176,7 +191,7 @@ void init(void) {
     INTCON3bits.INT2IF = 0;
     INTCON3bits.INT2IE = 1;
 
-
+    INTCONbits.RBIE = 1;
     INTCONbits.PEIE = 1; // Peripheral interrupt enable for USART RX interrupt
     INTCONbits.GIE = 1; // Global interrupt enable
 
@@ -238,7 +253,7 @@ void high_isr(void) {
         return;
     }
 
-    /* TIMER 0 INTERRUPT HANDLING */
+    /* TIMER 0 INTERRUPT HANDLING, 1 second main system tick timer */
     if (INTCONbits.TMR0IF == 1) {
         WriteTimer0(TMR0_VALUE); // Reprogram timer
         stat0 = 0;
@@ -247,6 +262,7 @@ void high_isr(void) {
         time_ticks_oo++;
         time_ticks_sht++;
 
+        show_hbeat();
         stat0 = 1;
     }
 
@@ -254,6 +270,15 @@ void high_isr(void) {
     if (PIR1bits.TMR1IF == 1) {
         WriteTimer1(TMR1_VALUE);
         PIR1bits.TMR1IF = 0;
+
+        // Check if we need to turn on/off the heartbeat LED
+        if (blink_hbeat > 0) {
+            stat0 = 0;
+            blink_hbeat--;
+        } else {
+            stat0 = 1;
+        }
+
         // Check if we need to handle a debounce
         if (debounce_water) {
             debounce_water--;
